@@ -65,3 +65,7 @@ CREATE TABLE "employees" (
   "lastname" varchar,
   "position" varchar,
 );
+
+INSERT INTO "employees" ("firstname", "lastname", "position")
+VALUES ('luke', 'ma', 'technician'),
+		('ginny', 'wang', 'admin');
