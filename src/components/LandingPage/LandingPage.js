@@ -21,16 +21,53 @@ class LandingPage extends Component {
                 <div className="grid">
                     <div className="grid-col grid-col_8">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus ut ex molestie blandit. Etiam et turpis sit amet risus mollis interdum. Suspendisse et justo vitae metus bibendum fringilla sed sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio elementum eget. Praesent efficitur eros vitae nunc interdum, eu interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur. Quisque eget eros metus. Vestibulum bibendum fringilla nibh a luctus. Duis a sapien metus.
+                            Neptune Management System provides a high level management platform for small-medium sized service-offering businesses. 
+                            Neptune offers the solution in management service towards the most essential aspects of business. 
                         </p>
-
-                        <p>
-                            Praesent consectetur orci dui, id elementum eros facilisis id. Sed id dolor in augue porttitor faucibus eget sit amet ante. Nunc consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut finibus metus facilisis. Nullam eget lectus non urna rhoncus accumsan quis id massa. Curabitur sit amet dolor nisl. Proin euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed lobortis augue mi vel felis. Duis ultrices sapien at est convallis congue.
-                        </p>
-
-                        <p>
-                            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat. Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed sagittis neque id diam euismod, ut egestas felis ultricies. Nullam non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit amet nisi.
-                        </p>
+                        <h4>
+                        The functionalities are listed below: 
+                        </h4>
+                        <ul>
+                            <p>
+                            Admin management platform
+                            </p>
+                            <li>
+                            Control over personnel dispatching/scheduling using google map API to maximize outside-personnels’ work-load, efficiency, and work progression during the period of each business day.
+                            </li>
+                            <li>
+                            Live chat forum for updates to outside-personnels incase of urgent changes to schedules and work notes. (stretch goal)
+                            </li>
+                            <li>
+                            Parts inventory and sales management for all clients. 
+                            </li>
+                            <li>
+                            Customer info data and notes, subscription updates, appointment setting and invoicing. 
+                            </li>
+                            <p>
+                            Outside-personnel platform
+                            </p>
+                            <li>
+                            Live update of daily work-load status urgent changes.
+                            </li>
+                            <li>
+                            Daily appointment schedule and work route through google map API.
+                            </li>
+                            <li>
+                            Live chat functionality to update admin/customer service personnel, and scheduling requests.(stretch goal)
+                            </li>
+                            <p>
+                            Management platform
+                            </p>
+                            <li>
+                            Access to all updates to personnel, product/service sales information.
+                            </li>
+                            <li>
+                            Personnel performance indicator.(stretch)
+                            </li>
+                            <li>
+                            Employee work scheduling, training scheduling.(stretch)
+                            </li>
+                        </ul>
                     </div>
                     <div className="grid-col grid-col_4">
                         <h3>Already a Member?</h3>
