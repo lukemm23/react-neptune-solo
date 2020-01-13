@@ -8,12 +8,13 @@
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+    "password" VARCHAR (1000) NOT NULL,
+    "security_level" numeric(3) NOT NULL
 );
 
-INSERT INTO "user" ("username", "password")
+INSERT INTO "user" ("username", "password", "security_level")
 VALUES 
-('lukemm23', '12345');
+('lukemm23', '12345', '3');
 
 -- CUSTOMERS TABLE
 CREATE TABLE "customers" (
@@ -55,4 +56,12 @@ CREATE TABLE "order_detail_junction" (
   "order_id" int,
   "service_id" int,
   "customer_id" int
+);
+
+-- EMPLOYEES TABLE
+CREATE TABLE "employees" (
+  "id" SERIAL PRIMARY KEY,
+  "firstname" varchar,
+  "lastname" varchar,
+  "position" varchar,
 );

@@ -33,7 +33,7 @@ router.post('/', (req, res, next) => {
   });
 
    /**
- * DELETE route template, DELETE customer from database
+ * DELETE route template, DELETE order from database
  */
 router.delete('/:id', (req, res) => {
     const queryText = `DELETE FROM "orders"
