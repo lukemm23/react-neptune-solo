@@ -32,4 +32,44 @@ router.post('/', (req, res, next) => {
       .catch(() => res.sendStatus(500));
   });
 
+  /**
+ * DELETE route template, DELETE customer from database
+ */
+router.delete('/:id', (req, res) => {
+    const queryText = `DELETE FROM "customers"
+                        WHERE "id" = $1;`;
+
+    pool.query(queryText, [req.params.id])
+        .then((response) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+});
+
+ /**
+ * PUT route template, PUT updates customer information to database
+ */
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+    console.log(req.body.firstname);
+    console.log(data, id);
+
+    let queryString = `UPDATE "customers" SET firstname='${data.firstname}',lastname='${data.lastname}',
+    email='${data.email}', phone='${data.phone}',address='${data.address}', city='${data.city}',zipcode='${data.zipcode}',
+    notes='${data.notes}' WHERE "id" = $1;`;
+
+    pool.query(queryString, [id])
+        .then((response) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+});
+
 module.exports = router;
