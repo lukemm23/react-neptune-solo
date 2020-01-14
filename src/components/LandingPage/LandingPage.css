@@ -3,7 +3,7 @@ Container
 -------------------------------------------------------------------------------- */
 
 .container {
-    padding: 20px;
+    padding: 50px;
 }
 
 /* --------------------------------------------------------------------------------
@@ -11,8 +11,8 @@ Button
 -------------------------------------------------------------------------------- */
 
 .btn {
-    background-color: #00acb0;
-    border-radius: 4px;
+    background-color:  rgb(29,63, 132);
+    border-radius: 40px;
     color: #f8f8f8;
     display: inline-block;
     padding: 10px;
@@ -28,11 +28,11 @@ Button
 
 .btn_sizeFull {
     display: block;
-    width: 100%;
+    width: 50%;
 }
 
 .btn:hover {
-    background-color: #008183;
+    background-color: rgb(38,120, 196);
     text-decoration: none;
 }
 

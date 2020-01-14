@@ -17,7 +17,6 @@ class LandingPage extends Component {
         return (
             <div className="container">
                 <h1>Neptune MS</h1>
-
                 <div className="grid">
                     <div className="grid-col grid-col_8">
                         <p>
