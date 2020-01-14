@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../../redux/mapStoreToProps';
 
-class RegisterPage extends Component {
+class LoginPage extends Component {
   state = {
     username: '',
     password: '',
   };
 
-  registerUser = (event) => {
+  login = (event) => {
     event.preventDefault();
 
     if (this.state.username && this.state.password) {
       this.props.dispatch({
-        type: 'REGISTER',
+        type: 'LOGIN',
         payload: {
           username: this.state.username,
           password: this.state.password,
         },
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
-  } // end registerUser
+  } // end login
 
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
@@ -33,16 +33,16 @@ class RegisterPage extends Component {
   render() {
     return (
       <div>
-        {this.props.errors.registrationMessage && (
+        {this.props.store.errors.loginMessage && (
           <h2
             className="alert"
             role="alert"
           >
-            {this.props.errors.registrationMessage}
+            {this.props.store.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
+        <form onSubmit={this.login}>
+          <h1>Login</h1>
           <div>
             <label htmlFor="username">
               Username:
@@ -67,10 +67,10 @@ class RegisterPage extends Component {
           </div>
           <div>
             <input
-              className="register"
+              className="log-in"
               type="submit"
               name="submit"
-              value="Register"
+              value="Log In"
             />
           </div>
         </form>
@@ -78,9 +78,9 @@ class RegisterPage extends Component {
           <button
             type="button"
             className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
           >
-            Login
+            Register
           </button>
         </center>
       </div>
@@ -88,5 +88,4 @@ class RegisterPage extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(RegisterPage);
-
+export default connect(mapStoreToProps)(LoginPage);

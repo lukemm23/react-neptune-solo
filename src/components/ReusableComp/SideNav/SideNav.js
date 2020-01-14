@@ -1,5 +1,6 @@
 import React from 'react';
-
+// import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 //material UI
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -23,6 +24,7 @@ import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import ChatIcon from '@material-ui/icons/Chat';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+
 
 const drawerWidth = 240;
 
@@ -87,9 +89,43 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
+// sideNav click functionalities
+const searchClick = (event, props) => {
+    console.log('search clicked');
+    props.history.push('/search');
+};
+const homeClick = (event, props) => {
+    console.log('home clicked');
+    props.history.push('/admin');
+};
+const customerClick = (event, props) => {
+    console.log('customer clicked');
+    props.history.push('/customer');
+};
+const dispatchClick = (event, props) => {
+    console.log('dispatch clicked');
+    props.history.push('/dispatch');
+};
+const chatClick = (event, props) => {
+    console.log('chat clicked');
+    props.history.push('/chat');
+};
+const invoicingClick = (event, props) => {
+    console.log('invoicing clicked');
+    props.history.push('/invoice');
+};
+
+// const LogOutButton = props => (
+//     <button
+//       className={props.className}
+//       onClick={() => props.dispatch({ type: 'LOGOUT' })}
+//     >
+//       Log Out
+//     </button>
+//   );
 
 
-export default function MiniDrawer() {
+const MiniDrawer = props => {
 // sideNav styles
     const classes = useStyles();
     const theme = useTheme();
@@ -102,26 +138,6 @@ export default function MiniDrawer() {
 
     const handleDrawerClose = () => {
         setOpen(false);
-    };
-
-// sideNav click functionalities
-    const searchClick = () => {
-        console.log('search clicked');
-    };
-    const homeClick = () => {
-        console.log('home clicked');
-    };
-    const customerClick = () => {
-        console.log('customer clicked');
-    };
-    const dispatchClick = () => {
-        console.log('dispatch clicked');
-    };
-    const chatClick = () => {
-        console.log('chat clicked');
-    };
-    const invoicingClick = () => {
-        console.log('invoicing clicked');
     };
 
     return (
@@ -172,37 +188,37 @@ export default function MiniDrawer() {
                 <List>
                     <ListItem>
                         <ListItemIcon>
-                            <SearchIcon onClick={searchClick}/>
+                            <SearchIcon onClick={(event) => searchClick(event, props)}/>
                         </ListItemIcon>
                         <ListItemText />
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
-                            <HomeIcon onClick={homeClick}/>
+                            <HomeIcon onClick={(event) => homeClick(event, props)}/>
                         </ListItemIcon>
                         <ListItemText />
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
-                        <GroupAddIcon onClick={customerClick}/>
+                        <GroupAddIcon onClick={(event) => customerClick(event, props)}/>
                         </ListItemIcon>
                         <ListItemText />
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
-                        <AssignmentIcon onClick={dispatchClick}/>
+                        <AssignmentIcon onClick={(event) => dispatchClick(event, props)}/>
                         </ListItemIcon>
                         <ListItemText />
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
-                        <ChatIcon onClick={chatClick}/>
+                        <ChatIcon onClick={(event) => chatClick(event, props)}/>
                         </ListItemIcon>
                         <ListItemText />
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
-                        <InsertDriveFileIcon onClick={invoicingClick}/>
+                        <InsertDriveFileIcon onClick={(event) => invoicingClick(event, props)}/>
                         </ListItemIcon>
                         <ListItemText/>
                     </ListItem>
@@ -212,8 +228,10 @@ export default function MiniDrawer() {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-
             </main>
         </div>
     );
 }
+
+
+export default withRouter(MiniDrawer);
