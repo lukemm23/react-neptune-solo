@@ -5,13 +5,13 @@ const router = express.Router();
 /**
  * GET route template, GET customer by ID for search feature
  */
-router.get('/:id', (req, res) => {
+router.get('/', (req, res) => {
     const queryText = `SELECT * FROM "customers"
-                        WHERE "id" = $1;`;
+    ORDER BY "customers"."id" ASC;`;
 
-    pool.query(queryText, [req.params.id])
+    pool.query(queryText)
         .then((response) => {
-            res.send(response.rows[0]);
+            res.send(response.rows);
         })
         .catch((err) => {
             console.log(err);

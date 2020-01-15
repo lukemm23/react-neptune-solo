@@ -19,13 +19,13 @@ VALUES
 -- CUSTOMERS TABLE
 CREATE TABLE "customers" (
     "id" SERIAL PRIMARY KEY,
-    "firstname" VARCHAR (80) UNIQUE NOT NULL,
-    "lastname" VARCHAR (80) UNIQUE NOT NULL,
+    "firstname" VARCHAR (80) NOT NULL,
+    "lastname" VARCHAR (80) NOT NULL,
     "email" VARCHAR (80) NOT NULL,
-    "phone"  numeric(10) UNIQUE NOT NULL,
+    "phone"  VARCHAR(10) NOT NULL,
     "address" VARCHAR (200) NOT NULL,
     "city" VARCHAR (20) NOT NULL,
-    "zipcode" integer NOT NULL,
+    "zipcode" VARCHAR(5) NOT NULL,
     "notes" VARCHAR (500)
 );
 

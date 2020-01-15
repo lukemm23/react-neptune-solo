@@ -1,5 +1,6 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import LogOutButton from '../../ReusableComp/LogOutButton/LogOutButton';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 //material UI
 import clsx from 'clsx';
@@ -115,16 +116,6 @@ const invoicingClick = (event, props) => {
     props.history.push('/invoice');
 };
 
-// const LogOutButton = props => (
-//     <button
-//       className={props.className}
-//       onClick={() => props.dispatch({ type: 'LOGOUT' })}
-//     >
-//       Log Out
-//     </button>
-//   );
-
-
 const MiniDrawer = props => {
 // sideNav styles
     const classes = useStyles();
@@ -162,7 +153,8 @@ const MiniDrawer = props => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap>
-                        {/* this is where header go */}
+                       NEPTUNE                   
+                       <LogOutButton className="log-in"/>
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -234,4 +226,4 @@ const MiniDrawer = props => {
 }
 
 
-export default withRouter(MiniDrawer);
+export default connect()(withRouter(MiniDrawer));

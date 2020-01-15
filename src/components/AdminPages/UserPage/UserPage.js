@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import LogOutButton from '../../ReusableComp/LogOutButton/LogOutButton';
+// import LogOutButton from '../../ReusableComp/LogOutButton/LogOutButton';
 // import Nav from '../Nav/Nav';
 // import Calendar from '../Calendar/Calendar';
 import SideNav from '../../ReusableComp/SideNav/SideNav';
@@ -12,16 +12,17 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 class UserPage extends Component{
+ 
   
   render(){
+    
     return (
       <div>
         {/* <Nav /> */}
         <SideNav history={this.props.history} />
+        <h2>User Page</h2>
         {/* <Calendar /> */}
-        <LogOutButton className="log-in"/>
         {/* <Footer /> */}
-       
       </div>
       
     );
