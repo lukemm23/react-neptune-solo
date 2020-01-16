@@ -36,26 +36,30 @@ VALUES
 -- ORDERS TABLE
 CREATE TABLE "orders" (
   "id" SERIAL PRIMARY KEY,
-  "estimate_time" numeric NOT NULL,
-  "service" VARCHAR (30) NOT NULL,
-  "service_frequency" VARCHAR (20) NOT NULL,
-  "service_due" numeric(12,2) NOT NULL,
+  "estimate_time" numeric,
+  "service" VARCHAR (30),
+  "service_frequency" VARCHAR (20),
+  "service_due" numeric(12,2),
   "tax_due" numeric(12,2),
   "total_due" numeric(12,2),
-  "status" VARCHAR (30) NOT NULL
+  "status" VARCHAR (30)
 );
 
 INSERT INTO "orders" ("estimate_time", "service", "service_frequency", "service_due", "tax_due", "total_due", "status")
 VALUES ('2', 'maintenance', 'monthly', '50.00', '4.25', '54.25', 'not dispatched'),
 		('4', 'repair', 'once', '150.00', '12.75', '162.75', 'dispatched');
 
+-- INSERT EMPTY ORDERS
+    INSERT INTO "orders" ("estimate_time")
+VALUES (0);
+
 -- JUNCTION TABLE
 CREATE TABLE "order_detail_junction" (
   "id" SERIAL PRIMARY KEY,
-  "employee_id" int,
-  "order_id" int,
-  "service_id" int,
-  "customer_id" int
+  "employee_id" int REFERENCES "employees",
+  "order_id" int REFERENCES "orders",
+  "service_id" int REFERENCES "services",
+  "customer_id" int REFERENCES "customers"
 );
 
 -- EMPLOYEES TABLE
@@ -69,3 +73,15 @@ CREATE TABLE "employees" (
 INSERT INTO "employees" ("firstname", "lastname", "position")
 VALUES ('luke', 'ma', 'technician'),
 		('ginny', 'wang', 'admin');
+
+-- SERVICES TABLE
+  CREATE TABLE "services" (
+  "id" SERIAL PRIMARY KEY,
+  "name" varchar,
+  "type" varchar,
+  "unit_sale_price" varchar
+);
+
+INSERT INTO "services" ("name", "type", "unit_sale_price")
+VALUES ('premium cleaning', 'maint', '49.99'),
+		('pump repair', 'repair', '149.99');
