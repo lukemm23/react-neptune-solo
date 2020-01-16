@@ -33,6 +33,10 @@ INSERT INTO "customers" ("firstname", "lastname", "email", "phone", "address", "
 VALUES 
 ('luke', 'ma', 'lukemm23@gmail.com', '9728783836', '11230 oak street', 'kansas city', '64114', 'awesome dude!');
 
+-- GET by id
+SELECT * FROM "customers"
+WHERE "customers"."id" = 1;
+
 -- ORDERS TABLE
 CREATE TABLE "orders" (
   "id" SERIAL PRIMARY KEY,
@@ -61,6 +65,9 @@ CREATE TABLE "order_detail_junction" (
   "service_id" int REFERENCES "services",
   "customer_id" int REFERENCES "customers"
 );
+
+INSERT INTO "order_detail_junction" ("employee_id", "order_id", "service_id", "customer_id")
+VALUES ('1', '1', '1','1' );
 
 -- EMPLOYEES TABLE
 CREATE TABLE "employees" (

@@ -34,13 +34,13 @@ router.post('/onlyID', (req, res, next) => {
       .catch(() => res.sendStatus(500));
   });
 /**
- * POST route template, POST new order for add order feature
+ * POST route template, POST new order to order_detail_junction
  */
 router.post('/', (req, res, next) => {  
     const newOrder= req.body;
     console.log(newOrder);
-    const queryTextInsertOrder = `INSERT INTO "order" (estimate_time,service,service_frequency,service_due,tax_due,total_due,status) VALUES
-    ('${newOrder.estimate_time}','${newOrder.service}','${newOrder.service_frequency}','${newOrder.service_due}','${newOrder.tax_due}','${newOrder.total_due}','${newOrder.status}');`;
+    const queryTextInsertOrder = `INSERT INTO "order_detail_junction" ("employee_id", "order_id", "service_id", "customer_id")
+    VALUES ('1', '1', '1','1' );`;
         
     pool.query(queryTextInsertOrder)
 

@@ -14,6 +14,7 @@ import CustomerPage from '../AdminPages/CustomerPage/CustomerPage';
 import InvoicePage from '../AdminPages/InvoicePage/InvoicePage';
 import ChatPage from '../AdminPages/ChatPage/ChatPage';
 import DispatchPage from '../AdminPages/DispatchPage/DispatchPage';
+import OrderPage from '../AdminPages/OrderPage/OrderPage';
 
 
 import './App.css';
@@ -44,6 +45,7 @@ class App extends Component {
             <ProtectedRoute exact path="/dispatch" component={DispatchPage} />
             <ProtectedRoute exact path="/chat" component={ChatPage} />
             <ProtectedRoute exact path="/invoice" component={InvoicePage} />
+            <ProtectedRoute exact path="/order" component={OrderPage} />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <ProtectedRoute exact path="/login" authRedirect="/admin" component={LoginPage} />

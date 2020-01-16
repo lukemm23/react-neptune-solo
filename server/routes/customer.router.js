@@ -3,13 +3,30 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template, GET customer by ID for search feature
+ * GET route template, GET all customer for search feature
  */
 router.get('/', (req, res) => {
     const queryText = `SELECT * FROM "customers"
     ORDER BY "customers"."id" ASC;`;
 
     pool.query(queryText)
+        .then((response) => {
+            res.send(response.rows);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+});
+
+/**
+ * GET route template, GET customer by ID to push to order page
+ */
+router.get('/:id', (req, res) => {
+    const queryText = `SELECT * FROM "customers"
+                        WHERE "customers"."id" = $1;`;
+
+    pool.query(queryText, [req.params.id])
         .then((response) => {
             res.send(response.rows);
         })

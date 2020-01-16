@@ -11,6 +11,17 @@ class SearchTool extends Component {
     state= {
         name:'',
         phone:'',
+        // customerResult:{
+        //     id: null,
+        //     firstname: "",
+        //     lastname: "",
+        //     email: "",
+        //     phone: "",
+        //     address: "",
+        //     city: "",
+        //     zipcode: "",
+        //     notes: "",
+        // }
     }
 
     componentDidMount() { // react Component method
@@ -23,26 +34,56 @@ class SearchTool extends Component {
         this.setState({
             [infoKey]:event.target.value
         });
-        console.log(this.state);
     }
 
     cancelButton = (event) => {
         this.props.history.push('/admin');
     }
 
+    addService = indexArray => event => {
+        if(indexArray.length > 1){
+            alert('TOO MANY CUSTOMERS');
+        } else {
+            console.log(this.props.store.customers[indexArray[0]]);
+            this.props.dispatch({
+            type: 'GET_CUSTOMER_ID',
+            payload: this.props.store.customers[indexArray[0]]
+        });
+
+            // this.setState({
+            //     ...this.state.customerResult,
+            //     ...this.props.store.customers[indexArray[0]]
+            // })
+            // console.log(this.state.customerResult);
+        }
+
+        // this.props.dispatch({
+        //     type: 'GET_CUSTOMER_ID',
+        //     payload: 
+        // })
+        this.props.history.push('/order');
+    }
+
     render() {
+        let indexArray = [];
+
         const customersArr = this.props.store.customers.map((item, index)=>{
+            
             if(this.state.name === item.firstname || this.state.name === item.lastname){
+                indexArray = [...indexArray, index];
                 return (
                     <li key={index}>
+                        <div>{item.id}</div>
                         <div>{item.firstname} {item.lastname} {item.phone}</div>
                         <div>{item.address}</div>
                         <div>{item.city} {item.zipcode}</div>
                     </li>
                 )
             } else if (this.state.phone === item.phone){
-                return (
+                indexArray = [...indexArray, index];
+               return (
                     <li key={index}>
+                        <div>{item.id}</div>
                         <div>{item.firstname} {item.lastname} {item.phone}</div>
                         <div>{item.address}</div>
                         <div>{item.city} {item.zipcode}</div>
@@ -53,8 +94,9 @@ class SearchTool extends Component {
                     <li key={index}>
                     </li>
                 )
-            }  
+            }            
         })
+
         return (
             <div>
                 <input placeholder="Enter Customer Name" onChange={(event)=>this.onChange(event, 'name')} />
@@ -64,7 +106,7 @@ class SearchTool extends Component {
                     Search Results:
                     <ul>{customersArr}</ul>
                 </div>
-                <button>Add Service for Customer</button>
+                <button onClick={this.addService(indexArray)}>Add Service for Customer</button>
                 <button onClick={this.cancelButton}>Cancel</button>
             </div>
         );
