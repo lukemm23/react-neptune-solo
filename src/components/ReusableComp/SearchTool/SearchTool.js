@@ -11,17 +11,7 @@ class SearchTool extends Component {
     state= {
         name:'',
         phone:'',
-        // customerResult:{
-        //     id: null,
-        //     firstname: "",
-        //     lastname: "",
-        //     email: "",
-        //     phone: "",
-        //     address: "",
-        //     city: "",
-        //     zipcode: "",
-        //     notes: "",
-        // }
+        estimate_time:'',
     }
 
     componentDidMount() { // react Component method
@@ -44,23 +34,16 @@ class SearchTool extends Component {
         if(indexArray.length > 1){
             alert('TOO MANY CUSTOMERS');
         } else {
-            console.log(this.props.store.customers[indexArray[0]]);
             this.props.dispatch({
-            type: 'GET_CUSTOMER_ID',
+            type: 'SET_CUSTOMER_ID',
             payload: this.props.store.customers[indexArray[0]]
         });
-
-            // this.setState({
-            //     ...this.state.customerResult,
-            //     ...this.props.store.customers[indexArray[0]]
-            // })
-            // console.log(this.state.customerResult);
+        
+            this.props.dispatch({
+                type: 'ADD_ORDER',
+                payload: this.state.estimate_time
+            });
         }
-
-        // this.props.dispatch({
-        //     type: 'GET_CUSTOMER_ID',
-        //     payload: 
-        // })
         this.props.history.push('/order');
     }
 

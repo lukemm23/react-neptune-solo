@@ -15,8 +15,21 @@ class OrderPage extends Component {
     render() {
         return (
             <div>
-                <SideNav/>
+                <SideNav />
                 <h2>Order Page</h2>
+                <div>
+                    <div>
+                        <span>Name: {this.props.store.selected.firstname}</span><span> </span>
+                        <span>{this.props.store.selected.lastname}</span><span> </span>
+                        <span>Phone: {this.props.store.selected.phone}</span>
+                    </div>
+                    <div>
+                        <span>address: {this.props.store.selected.address}</span><span> </span>
+                        <span>{this.props.store.selected.city}</span><span> </span>
+                        <span>{this.props.store.selected.zipcode}</span>
+                    </div>
+                   
+                </div>
             </div>
         );
     }

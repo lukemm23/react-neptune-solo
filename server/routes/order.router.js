@@ -20,37 +20,59 @@ router.get('/', (req, res) => {
 });
 
 /**
+ * GET route template, GET order by id
+ */
+router.get('/:id', (req, res) => {
+    console.log(req.params.id);
+    const queryText = `SELECT * FROM "orders"
+                        WHERE "orders"."id" = $1;`;
+
+    pool.query(queryText, [req.params.id])
+        .then((response) => {
+            res.send(response.rows);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+});
+
+
+/**
  * POST route template, POST adding a order with ID only ready for input
  */
-router.post('/onlyID', (req, res, next) => {  
-    const newOrder= req.body;
+router.post('/onlyID', (req, res, next) => {
+    const newOrder = req.body;
     console.log(newOrder);
     const queryTextInsertOrder = `INSERT INTO "orders" ("estimate_time")
     VALUES ('');`;
-        
-    pool.query(queryTextInsertOrder)
 
-      .then(() => res.sendStatus(201))
-      .catch(() => res.sendStatus(500));
-  });
+    pool.query(queryTextInsertOrder)
+        .then((response) => {
+            res.json({status:200, data:{id: response.rows.id}})
+        })
+        .catch((err) => {
+            res.sendStatus(500);
+        })
+});
 /**
  * POST route template, POST new order to order_detail_junction
  */
-router.post('/', (req, res, next) => {  
-    const newOrder= req.body;
+router.post('/', (req, res, next) => {
+    const newOrder = req.body;
     console.log(newOrder);
     const queryTextInsertOrder = `INSERT INTO "order_detail_junction" ("employee_id", "order_id", "service_id", "customer_id")
     VALUES ('1', '1', '1','1' );`;
-        
+
     pool.query(queryTextInsertOrder)
 
-      .then(() => res.sendStatus(201))
-      .catch(() => res.sendStatus(500));
-  });
+        .then(() => res.sendStatus(201))
+        .catch(() => res.sendStatus(500));
+});
 
-   /**
- * DELETE route template, DELETE order from database
- */
+/**
+* DELETE route template, DELETE order from database
+*/
 router.delete('/:id', (req, res) => {
     const queryText = `DELETE FROM "orders"
                         WHERE "id" = $1;`;
