@@ -1,9 +1,9 @@
-const setAllNewReducer = (state = {}, action) => {
+const setAllNewReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_ALL_NEW_ORDER':
-        return {
+        return [
          ...action.payload 
-        }
+        ]
           
       default:
         return state;
