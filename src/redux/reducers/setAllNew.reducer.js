@@ -1,6 +1,6 @@
-const setOrderReducer = (state = {}, action) => {
+const setAllNewReducer = (state = {}, action) => {
     switch (action.type) {
-      case 'SET_ORDER':
+      case 'SET_ALL_NEW_ORDER':
         return {
          ...action.payload 
         }
@@ -13,4 +13,4 @@ const setOrderReducer = (state = {}, action) => {
   
   // user will be on the redux state at:
   // state.user
-  export default setOrderReducer;
+  export default setAllNewReducer;

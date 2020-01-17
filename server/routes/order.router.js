@@ -7,6 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     const queryText = `SELECT * FROM "orders"
+    WHERE "orders"."status" = 'not dispatched'
     ORDER BY "orders"."id" ASC;`;
 
     pool.query(queryText)
@@ -45,15 +46,17 @@ router.post('/onlyID', (req, res, next) => {
     const newOrder = req.body;
     console.log(newOrder);
     const queryTextInsertOrder = `INSERT INTO "orders" ("estimate_time")
-    VALUES ('');`;
+    VALUES ('') RETURNING "id";`;
 
     pool.query(queryTextInsertOrder)
+    
         .then((response) => {
-            res.json({status:200, data:{id: response.rows.id}})
-        })
-        .catch((err) => {
-            res.sendStatus(500);
-        })
+            console.log('right here', response.rows[0].id)
+            let id = response.rows[0].id
+            res.json({status:200, id})
+            return('cool');
+            })
+            .catch(() => res.sendStatus(500))
 });
 /**
  * POST route template, POST new order to order_detail_junction
@@ -61,8 +64,8 @@ router.post('/onlyID', (req, res, next) => {
 router.post('/', (req, res, next) => {
     const newOrder = req.body;
     console.log(newOrder);
-    const queryTextInsertOrder = `INSERT INTO "order_detail_junction" ("employee_id", "order_id", "service_id", "customer_id")
-    VALUES ('1', '1', '1','1' );`;
+    const queryTextInsertOrder = `INSERT INTO "order_detail_junction" ("order_id", "service_id", "customer_id")
+    VALUES ('${newOrder.id}', '${newOrder.service}', '${newOrder.customer_id}');`;
 
     pool.query(queryTextInsertOrder)
 
@@ -97,7 +100,9 @@ router.put('/:id', (req, res) => {
     console.log(id);
 
     let queryString = `UPDATE "orders" SET estimate_time='${data.estimate_time}',service='${data.service}',
-    service_frequency='${data.service_frequency}', service_due='${data.service_due}',tax_due='${data.tax_due}', total_due='${data.total_due}',status='${data.status}'
+    service_frequency='${data.service_frequency}', service_due='${data.service_due}',
+    tax_due='${data.tax_due}', total_due='${data.total_due}',status='not dispatched',
+    date= '${data.date}', notes= '${data.notes}'
     WHERE "id" = $1;`;
 
     pool.query(queryString, [id])

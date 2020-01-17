@@ -20,4 +20,5 @@ class Dispatch extends Component {
     }
 }
 
+
 export default connect(mapStoreToProps)(Dispatch);

@@ -11,7 +11,7 @@ function* getOrder(action) {
         });
         yield put({
             type: 'SET_ORDER',
-            payload: response.data
+            payload: response.data[0]
         });
     } catch (err) {
         console.log('error fetching order: ', err);
@@ -22,6 +22,5 @@ function* getOrder(action) {
 function* getOrderSaga() {
     yield takeLatest('GET_ORDER', getOrder);
 }
-
 
 export default getOrderSaga;
