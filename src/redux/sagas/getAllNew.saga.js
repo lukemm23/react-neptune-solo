@@ -6,7 +6,7 @@ function* getAllNew(action) {
     try {
         const response = yield axios({
             method: 'GET',
-            url: '/api/order'
+            url: '/api/dispatch'
         });
         yield put({
             type: 'SET_ALL_NEW_ORDER',

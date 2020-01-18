@@ -5,20 +5,20 @@ const router = express.Router();
 /**
  * GET route template, GET all orders for dispatch
  */
-router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM "orders"
-    WHERE "orders"."status" = 'not dispatched'
-    ORDER BY "orders"."id" ASC;`;
+// router.get('/', (req, res) => {
+//     const queryText = `SELECT * FROM "orders"
+//     WHERE "orders"."status" = 'not dispatched'
+//     ORDER BY "orders"."id" ASC;`;
 
-    pool.query(queryText)
-        .then((response) => {
-            res.send(response.rows);
-        })
-        .catch((err) => {
-            console.log(err);
-            res.sendStatus(500);
-        });
-});
+//     pool.query(queryText)
+//         .then((response) => {
+//             res.send(response.rows);
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//             res.sendStatus(500);
+//         });
+// });
 
 /**
  * GET route template, GET order by id

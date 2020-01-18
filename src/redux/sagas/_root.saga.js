@@ -9,6 +9,7 @@ import getOrderSaga from './getOrder.saga';
 import editOrderSaga from './editOrder.saga';
 import getAllNewSaga from './getAllNew.saga';
 import postJunctionSaga from './postJunction.saga';
+import getOrderTechSaga from './getOrderTech.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     editOrderSaga(),
     getAllNewSaga(),
     postJunctionSaga(),
+    getOrderTechSaga(),
   ]);
 }
