@@ -2,28 +2,29 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 //axio PUT to update title and description on edit page
-function* editOrder(action) {
+function* addTech(action) {
     const id = action.payload.id
     try {
-         yield axios({
+        const response = yield axios({
             method: 'PUT',
-            url: '/api/order/'+id,
+            url: '/api/dispatch/'+id,
             data: action.payload
         });
         yield put ({
-            type: 'GET_ALL_NEW_ORDER'
+            type: 'GET_ORDER_BY_TECH',
+            payload: response.data.id
         })
        
     } catch (err) {
-        console.log('error editing orders: ', err);
+        console.log('error adding tech: ', err);
     }
 }
 
 
 // ONLY FOR REGISTRATION
-function* editOrderSaga() {
-    yield takeLatest('EDIT_ORDER', editOrder);
+function* addTechSaga() {
+    yield takeLatest('ADD_TECH', addTech);
 }
 
 
-export default editOrderSaga;
+export default addTechSaga;

@@ -12,7 +12,6 @@ class DatePicker extends Component {
     };
 
     changeDate = (event) => {  
-        console.log(this.state)
         this.props.dispatch({
             type: 'SET_DATE',
             payload: this.state.date

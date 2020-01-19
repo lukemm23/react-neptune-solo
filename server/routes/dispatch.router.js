@@ -23,6 +23,7 @@ router.get('/', (req, res) => {
         });
 });
 
+
 // /**
 //  * GET route template, GET all orders by assigned tech id 
 //  */
@@ -50,5 +51,30 @@ router.get('/:id', (req, res) => {
 // router.post('/', (req, res) => {
 
 // });
+
+/**
+ * PUT route template, PUT add tech to order_detail_junction
+ */
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+    console.log(req.body.service);
+    console.log(id);
+
+    let queryString = `UPDATE "order_detail_junction" SET employee_id='${data.employee_id}'
+    WHERE "order_id" = $1;`;
+
+    pool.query(queryString, [id])
+        .then((response) => {
+            console.log('right over here', req.body.employee_id)
+            let id = req.body.employee_id;
+            res.json({status:200, id:id})
+            return('cool2');
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+});
 
 module.exports = router;

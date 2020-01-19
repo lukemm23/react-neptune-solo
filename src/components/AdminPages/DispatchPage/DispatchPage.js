@@ -8,6 +8,7 @@ import './DispatchPage.css';
 class Dispatch extends Component {
     state = {
         employee_id: '',
+        id: '',
     };
     componentDidMount() { // react Component method
         this.props.dispatch({
@@ -22,6 +23,15 @@ class Dispatch extends Component {
         })
       }
 
+      editOrder = () => {
+        console.log(this.state);
+        this.props.dispatch({
+            type: 'ADD_TECH',
+            payload: this.state
+        })
+        
+      }
+
     render(){
         const newDateArr = this.props.store.setAllNew.map((item, index)=>{
             if(this.props.store.setDate.date === item.date) {
@@ -30,8 +40,9 @@ class Dispatch extends Component {
                     <span>{item.id}</span>
                     <span>{item.service} {item.customer_id} {item.notes}</span>
                     <span>{item.date}</span>
+                    <span>{item.order_id}</span>
                     <span>{item.status} {item.total_due}</span>
-                    <button>Dispatch</button>
+                    <button onClick={(event) => this.setState({id:item.order_id})}>Dispatch</button>
                 </div>
             )  
         } 
@@ -75,6 +86,7 @@ class Dispatch extends Component {
                 <div>
                     { orderByTechArr}
                 </div>
+                <button onClick={this.editOrder}>Confirm Changes</button>
                 </div>
             </div>
         );

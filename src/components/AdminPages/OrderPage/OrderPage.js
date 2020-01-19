@@ -24,8 +24,8 @@ class OrderPage extends Component {
             id: this.props.store.setOrder.id,
             [infoKey]: event.target.value
         });
-        console.log(this.state);
     }
+
 
     editOrder = () => {
         this.props.dispatch({
@@ -77,7 +77,7 @@ class OrderPage extends Component {
                         <input placeholder="notes" onChange={(event) => this.onChange(event, 'notes')} />
                     </div>
                     <div>
-                        <button onClick={this.editOrder}>Add Customer</button>
+                        <button onClick={this.editOrder}>Add Order</button>
                         <button onClick={this.cancelButton}>Cancel</button>
                     </div>
 

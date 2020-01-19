@@ -18,6 +18,7 @@ function* getOrderTech(action) {
     }
 }
 
+
 // ONLY FOR REGISTRATION
 function* getOrderTechSaga() {
     yield takeLatest('GET_ORDER_BY_TECH', getOrderTech);

@@ -47,6 +47,7 @@ class SearchTool extends Component {
         this.props.history.push('/order');
     }
 
+    
     render() {
         let indexArray = [];
 

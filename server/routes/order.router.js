@@ -100,7 +100,7 @@ router.put('/:id', (req, res) => {
     console.log(id);
 
     let queryString = `UPDATE "orders" SET estimate_time='${data.estimate_time}',service='${data.service}',
-    service_frequency='${data.service_frequency}', service_due='${data.service_due}',
+    service_frequency='${data.service_frequency}', service_due='${data.service_due}', 
     tax_due='${data.tax_due}', total_due='${data.total_due}',status='not dispatched',
     date= '${data.date}', notes= '${data.notes}'
     WHERE "id" = $1;`;
