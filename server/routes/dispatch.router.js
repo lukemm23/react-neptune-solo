@@ -63,13 +63,20 @@ router.put('/:id', (req, res) => {
 
     let queryString = `UPDATE "order_detail_junction" SET employee_id='${data.employee_id}'
     WHERE "order_id" = $1;`;
-
-    pool.query(queryString, [id])
-        .then((response) => {
-            console.log('right over here', req.body.employee_id)
-            let id = req.body.employee_id;
-            res.json({status:200, id:id})
-            return('cool2');
+    let queryText = `UPDATE "orders" SET status= 'dispatched' WHERE "id" = $1`;
+    pool.query(queryText, [id])
+        .then(() => {
+            pool.query(queryString, [id])
+                .then(() => {
+                    console.log('right over here', req.body.employee_id)
+                    let id = req.body.employee_id;
+                    res.json({ status: 200, id: id })
+                    return ('cool2');
+                })
+                .catch((err) => {
+                    console.log(err);
+                    res.sendStatus(500);
+                })
         })
         .catch((err) => {
             console.log(err);

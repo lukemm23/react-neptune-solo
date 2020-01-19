@@ -71,7 +71,7 @@ class OrderPage extends Component {
                     </div>
                     <div>
                         <input placeholder="service frequency" onChange={(event) => this.onChange(event, 'service_frequency')} />
-                        <input placeholder="estimated time" onChange={(event) => this.onChange(event, 'estimated_time')} />
+                        <input placeholder="estimated time" onChange={(event) => this.onChange(event, 'estimate_time')} />
                     </div>
                     <div>
                         <input placeholder="notes" onChange={(event) => this.onChange(event, 'notes')} />

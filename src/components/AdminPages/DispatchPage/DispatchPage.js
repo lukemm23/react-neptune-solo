@@ -29,12 +29,15 @@ class Dispatch extends Component {
             type: 'ADD_TECH',
             payload: this.state
         })
+        this.props.dispatch({
+            type: 'GET_ALL_NEW_ORDER',
+          })
         
       }
 
     render(){
         const newDateArr = this.props.store.setAllNew.map((item, index)=>{
-            if(this.props.store.setDate.date === item.date) {
+            if(this.props.store.setDate.date === item.date && item.status === 'not dispatched') {
             return (
                 <div key={index} className="style">
                     <span>{item.id}</span>
@@ -78,13 +81,13 @@ class Dispatch extends Component {
                         </select>
                         <button onClick={this.changeTech}>Choose Tech</button>
                 <div>
-                    {newDateArr}
+                    Order available for dispatch: {newDateArr}
                 </div> 
                 <br/>
                 <br/>
                 <br/>
                 <div>
-                    { orderByTechArr}
+                    Technician assigned orders: { orderByTechArr}
                 </div>
                 <button onClick={this.editOrder}>Confirm Changes</button>
                 </div>
