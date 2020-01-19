@@ -43,9 +43,16 @@ router.post('/', (req, res, next) => {
     const newCustomer= req.body;
     console.log(newCustomer);
     const queryText = `INSERT INTO "customers" (firstname, lastname, email, phone, address, city, zipcode, notes) VALUES
-    ('${newCustomer.firstname}','${newCustomer.lastname}','${newCustomer.email}','${newCustomer.phone}','${newCustomer.address}','${newCustomer.city}','${newCustomer.zipcode}','${newCustomer.notes}');`;
+    ('${newCustomer.firstname}','${newCustomer.lastname}','${newCustomer.email}',
+    '${newCustomer.phone}','${newCustomer.address}','${newCustomer.city}','${newCustomer.zipcode}',
+    '${newCustomer.notes}') RETURNING "id";`;
     pool.query(queryText)
-      .then(() => res.sendStatus(201))
+    .then((response) => {
+        console.log('right here', response.rows[0].id)
+        let id = response.rows[0].id
+        res.json({status:200, id})
+        return('cool');
+        })
       .catch(() => res.sendStatus(500));
   });
 

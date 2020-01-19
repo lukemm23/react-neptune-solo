@@ -38,7 +38,6 @@ class SearchTool extends Component {
             type: 'SET_CUSTOMER_ID',
             payload: this.props.store.customers[indexArray[0]]
         });
-        
             this.props.dispatch({
                 type: 'ADD_ORDER',
                 payload: this.state.estimate_time

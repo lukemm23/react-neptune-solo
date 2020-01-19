@@ -10,21 +10,21 @@ import { withRouter } from 'react-router-dom';
 // component.
 class Customer extends Component {
     state = {
-        firstname:'',
-        lastname:'',
+        firstname: '',
+        lastname: '',
         email: '',
-        phone:'',
-        address:'',
-        city:'',
-        zipcode:'',
-        notes:'',
+        phone: '',
+        address: '',
+        city: '',
+        zipcode: '',
+        notes: '',
+        estimate_time:'',
     }
 
     onChange = (event, infoKey) => {
         this.setState({
-            [infoKey]:event.target.value
+            [infoKey]: event.target.value
         });
-        console.log(this.state);
     }
 
     cancelButton = (event) => {
@@ -35,15 +35,16 @@ class Customer extends Component {
         this.props.dispatch({
             type: 'ADD_CUSTOMER',
             payload: this.state
-        })
+        });
+        this.props.dispatch({
+            type: 'GET_CUSTOMERS'
+        });
+        this.props.dispatch({
+            type: 'ADD_ORDER',
+            payload: this.state.estimate_time
+        });
+        this.props.history.push('/order');
     }
-
-    // {
-    //     ...this.state, 
-    //   callBack: () => {
-    //       this.props.history.push('/order');
-    //     }
-    //   }
 
     render() {
         return (
@@ -51,22 +52,22 @@ class Customer extends Component {
                 <SideNav history={this.props.history} />
                 <h2>Customer Page</h2>
                 <div>
-                    <input placeholder="First Name" onChange={(event)=>this.onChange(event, 'firstname')} />
-                    <input placeholder="Email" onChange={(event)=>this.onChange(event, 'email')} />
+                    <input placeholder="First Name" onChange={(event) => this.onChange(event, 'firstname')} />
+                    <input placeholder="Email" onChange={(event) => this.onChange(event, 'email')} />
                 </div>
                 <div>
-                    <input placeholder="Last Name" onChange={(event)=>this.onChange(event, 'lastname')} />
-                    <input placeholder="Phone" onChange={(event)=>this.onChange(event, 'phone')} />
+                    <input placeholder="Last Name" onChange={(event) => this.onChange(event, 'lastname')} />
+                    <input placeholder="Phone" onChange={(event) => this.onChange(event, 'phone')} />
                 </div>
                 <div>
-                    <input placeholder="Street Address" onChange={(event)=>this.onChange(event, 'address')} />
+                    <input placeholder="Street Address" onChange={(event) => this.onChange(event, 'address')} />
                 </div>
                 <div>
-                    <input placeholder="City" onChange={(event)=>this.onChange(event, 'city')} />
-                    <input placeholder="Zipcode" onChange={(event)=>this.onChange(event, 'zipcode')} />
+                    <input placeholder="City" onChange={(event) => this.onChange(event, 'city')} />
+                    <input placeholder="Zipcode" onChange={(event) => this.onChange(event, 'zipcode')} />
                 </div>
                 <div>
-                    <input placeholder="Notes" onChange={(event)=>this.onChange(event, 'notes')} />
+                    <input placeholder="Notes" onChange={(event) => this.onChange(event, 'notes')} />
                 </div>
                 <div>
                     <button onClick={this.addCustomer}>Add Customer</button>

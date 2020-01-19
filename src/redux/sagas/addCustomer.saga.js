@@ -4,8 +4,11 @@ import { put,takeLatest } from 'redux-saga/effects';
 //POST new customer
 function* addCustomer(action) {
     try {
-        yield axios.post('/api/customer', action.payload);
-        yield put({ type: 'GET_CUSTOMERS' });
+       const response = yield axios.post('/api/customer', action.payload);
+        yield put({ 
+            type: 'SET_CUSTOMER_ID',
+            payload: response.data.id
+    });
     } catch (err) {
         console.log('error adding customers: ', err);
     }
