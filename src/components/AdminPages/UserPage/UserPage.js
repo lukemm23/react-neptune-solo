@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 // import Calendar from '../Calendar/Calendar';
 import SideNav from '../../ReusableComp/SideNav/SideNav';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
+import Map from '../../ReusableComp/Map/Map';
+// import Map2 from '../../ReusableComp/Map/MapElement'
 // import Footer from '../Footer/Footer';
 
 // this could also be written with destructuring parameters as:
@@ -21,6 +23,7 @@ class UserPage extends Component{
         {/* <Nav /> */}
         <SideNav history={this.props.history} />
         <h2>User Page</h2>
+        <Map />
         {/* <Calendar /> */}
         {/* <Footer /> */}
       </div>

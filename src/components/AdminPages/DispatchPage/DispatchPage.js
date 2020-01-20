@@ -82,6 +82,7 @@ class Dispatch extends Component {
                 <div>
                     <h3>orders:</h3>
                     <DatePicker/>
+                    <br/>
                     <select onChange={(event) => this.setState({ employee_id: event.target.value })}>
                         <option value="">Choose Technician</option>
                             <option value="1">Luke</option>
