@@ -4,6 +4,7 @@ import DatePicker from '../../ReusableComp/DatePicker/DatePicker';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './DispatchPage.css';
+import Button from '@material-ui/core/Button';
 
 class Dispatch extends Component {
     state = {
@@ -22,6 +23,7 @@ class Dispatch extends Component {
             payload: this.state.employee_id
         })
       }
+
 
       editOrder = () => {
         console.log(this.state);
@@ -45,7 +47,7 @@ class Dispatch extends Component {
                     <span>{item.date}</span>
                     <span>{item.order_id}</span>
                     <span>{item.status} {item.total_due}</span>
-                    <button onClick={(event) => this.setState({id:item.order_id})}>Dispatch</button>
+                    <Button variant="contained" color="primary" onClick={(event) => this.setState({id:item.order_id})}>Dispatch</Button>
                 </div>
             )  
         } 
@@ -62,7 +64,13 @@ class Dispatch extends Component {
                     <span>{item.service} {item.customer_id} {item.notes}</span>
                     <span>{item.date}</span>
                     <span>{item.status} {item.total_due}</span>
-                    <button>Remove</button>
+                    {/* <Button variant="contained" color="primary" onClick={(event) => {
+                        this.setState({
+                            employee_id:"none",
+                            id: item.order_id
+                        })
+                    }
+                }>Remove</Button> */}
                 </div>
             )      
     })
@@ -79,7 +87,7 @@ class Dispatch extends Component {
                             <option value="1">Luke</option>
                             <option value="3">Josh</option>
                         </select>
-                        <button onClick={this.changeTech}>Choose Tech</button>
+                        <Button variant="contained" color="primary" onClick={this.changeTech}>Choose Tech</Button>
                 <div>
                     Order available for dispatch: {newDateArr}
                 </div> 
@@ -89,7 +97,7 @@ class Dispatch extends Component {
                 <div>
                     Technician assigned orders: { orderByTechArr}
                 </div>
-                <button onClick={this.editOrder}>Confirm Changes</button>
+                <Button variant="contained" color="primary" onClick={this.editOrder}>Confirm Changes</Button>
                 </div>
             </div>
         );

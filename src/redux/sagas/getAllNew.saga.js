@@ -22,4 +22,5 @@ function* getAllNewSaga() {
     yield takeLatest('GET_ALL_NEW_ORDER', getAllNew);
 }
 
+
 export default getAllNewSaga;

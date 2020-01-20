@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import SideNav from '../../ReusableComp/SideNav/SideNav';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import InputLabel from '@material-ui/core/InputLabel';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace 
-// the component name TemplateClass with the name for the new 
-// component.
 class OrderPage extends Component {
     state = {
         customer_id: '',
@@ -24,8 +23,8 @@ class OrderPage extends Component {
             id: this.props.store.setOrder.id,
             [infoKey]: event.target.value
         });
+        console.log(this.state);
     }
-
 
     editOrder = () => {
         this.props.dispatch({
@@ -62,23 +61,32 @@ class OrderPage extends Component {
                     </div>
 
                     <div>
+
+                        <InputLabel>Select Service</InputLabel>
                         <select onChange={(event) => this.setState({ service: event.target.value })}>
-                        <option value="">Choose Service</option>
+                            <option value="">Select Service</option>
                             <option value="1">premium cleaning</option>
                             <option value="2">pump repair</option>
                         </select>
-                        <input placeholder="date of service" onChange={(event) => this.onChange(event, 'date')} />
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <TextField className="input" size="small" label="Date of Service" variant="outlined" placeholder="date of service" onChange={(event) => this.onChange(event, 'date')} />
                     </div>
+                    <br />
                     <div>
-                        <input placeholder="service frequency" onChange={(event) => this.onChange(event, 'service_frequency')} />
-                        <input placeholder="estimated time" onChange={(event) => this.onChange(event, 'estimate_time')} />
+                        <TextField className="input" size="small" label="Service Frequency" variant="outlined" placeholder="service frequency" onChange={(event) => this.onChange(event, 'service_frequency')} />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <TextField className="input" size="small" label="Estimated Time" variant="outlined" placeholder="estimated time" onChange={(event) => this.onChange(event, 'estimate_time')} />
                     </div>
+                    <br />
                     <div>
-                        <input placeholder="notes" onChange={(event) => this.onChange(event, 'notes')} />
+                        <TextField className="input" size="small" label="Notes" variant="outlined" placeholder="notes" onChange={(event) => this.onChange(event, 'notes')} />
                     </div>
+                    <br />
                     <div>
-                        <button onClick={this.editOrder}>Add Order</button>
-                        <button onClick={this.cancelButton}>Cancel</button>
+                        <Button variant="contained" color="primary" onClick={this.editOrder}>Add Order</Button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <Button variant="contained" color="primary" onClick={this.cancelButton}>Cancel</Button>
                     </div>
 
 
@@ -89,3 +97,6 @@ class OrderPage extends Component {
 }
 
 export default connect(mapStoreToProps)(OrderPage);
+
+
+

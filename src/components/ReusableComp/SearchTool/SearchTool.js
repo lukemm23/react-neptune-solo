@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import { withRouter } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace 
-// the component name TemplateClass with the name for the new 
-// component.
 class SearchTool extends Component {
     state= {
         name:'',
@@ -55,42 +53,43 @@ class SearchTool extends Component {
             if(this.state.name === item.firstname || this.state.name === item.lastname){
                 indexArray = [...indexArray, index];
                 return (
-                    <li key={index}>
+                    <div key={index}>
                         <div>{item.id}</div>
                         <div>{item.firstname} {item.lastname} {item.phone}</div>
                         <div>{item.address}</div>
                         <div>{item.city} {item.zipcode}</div>
-                    </li>
+                    </div>
                 )
             } else if (this.state.phone === item.phone){
                 indexArray = [...indexArray, index];
                return (
-                    <li key={index}>
+                    <div key={index}>
                         <div>{item.id}</div>
                         <div>{item.firstname} {item.lastname} {item.phone}</div>
                         <div>{item.address}</div>
                         <div>{item.city} {item.zipcode}</div>
-                    </li>
+                    </div>
                 )
             } else {
                 return (
-                    <li key={index}>
-                    </li>
+                    <div key={index}>
+                    </div>
                 )
             }            
         })
 
         return (
             <div>
-                <input placeholder="Enter Customer Name" onChange={(event)=>this.onChange(event, 'name')} />
-                <span>OR</span>
-                <input placeholder="Enter Customer Phone" onChange={(event)=>this.onChange(event, 'phone')} />
+                <TextField className="input" size="small" label="Enter Name" variant="outlined" placeholder="Enter Customer Name" onChange={(event)=>this.onChange(event, 'name')} />
+                <span>   OR   </span>
+                <TextField className="input" size="small" label="Enter Phone" variant="outlined" placeholder="Enter Customer Phone" onChange={(event)=>this.onChange(event, 'phone')} />
                 <div>
                     Search Results:
-                    <ul>{customersArr}</ul>
+                    <div>{customersArr}</div>
                 </div>
-                <button onClick={this.addService(indexArray)}>Add Service for Customer</button>
-                <button onClick={this.cancelButton}>Cancel</button>
+                <Button variant="contained" color="primary" onClick={this.addService(indexArray)}>Add Service for Customer</Button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <Button variant="contained" color="primary" onClick={this.cancelButton}>Cancel</Button>
             </div>
         );
     }

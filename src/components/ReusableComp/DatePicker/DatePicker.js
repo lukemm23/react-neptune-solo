@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
+import Button from '@material-ui/core/Button';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace 
@@ -55,7 +56,7 @@ class DatePicker extends Component {
                             <option value="30">30</option>
                             <option value="31">31</option>
                         </select>
-                        <button onClick={this.changeDate}>Choose Date</button>
+                        <Button variant="contained" color="primary" onClick={this.changeDate}>Choose Date</Button>
             </div>
         );
     }

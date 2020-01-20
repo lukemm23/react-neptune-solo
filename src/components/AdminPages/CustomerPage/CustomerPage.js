@@ -3,11 +3,9 @@ import SideNav from '../../ReusableComp/SideNav/SideNav';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import { withRouter } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace 
-// the component name TemplateClass with the name for the new 
-// component.
 class Customer extends Component {
     state = {
         firstname: '',
@@ -52,26 +50,35 @@ class Customer extends Component {
                 <SideNav history={this.props.history} />
                 <h2>Customer Page</h2>
                 <div>
-                    <input placeholder="First Name" onChange={(event) => this.onChange(event, 'firstname')} />
-                    <input placeholder="Email" onChange={(event) => this.onChange(event, 'email')} />
+                    <TextField className="input" size="small" label="First Name" variant="outlined" placeholder="First Name" onChange={(event) => this.onChange(event, 'firstname')} />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <TextField size="small" label="Email" variant="outlined" placeholder="Email" onChange={(event) => this.onChange(event, 'email')} />
                 </div>
+                <br/>
                 <div>
-                    <input placeholder="Last Name" onChange={(event) => this.onChange(event, 'lastname')} />
-                    <input placeholder="Phone" onChange={(event) => this.onChange(event, 'phone')} />
+                    <TextField size="small" label="Last Name" variant="outlined" placeholder="Last Name" onChange={(event) => this.onChange(event, 'lastname')} />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <TextField size="small" label="Phone" variant="outlined" placeholder="Phone" onChange={(event) => this.onChange(event, 'phone')} />
                 </div>
+                <br/>
                 <div>
-                    <input placeholder="Street Address" onChange={(event) => this.onChange(event, 'address')} />
+                    <TextField size="small" fullWidth label="Street Address" variant="outlined" placeholder="Street Address" onChange={(event) => this.onChange(event, 'address')} />
                 </div>
+                <br/>
                 <div>
-                    <input placeholder="City" onChange={(event) => this.onChange(event, 'city')} />
-                    <input placeholder="Zipcode" onChange={(event) => this.onChange(event, 'zipcode')} />
+                    <TextField size="small" label="City" variant="outlined" placeholder="City" onChange={(event) => this.onChange(event, 'city')} />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <TextField size="small" label="Zipcode" variant="outlined" placeholder="Zipcode" onChange={(event) => this.onChange(event, 'zipcode')} />
                 </div>
+                <br/>
                 <div>
-                    <input placeholder="Notes" onChange={(event) => this.onChange(event, 'notes')} />
+                    <TextField size="small" fullWidth label="Notes" variant="outlined" placeholder="Notes" onChange={(event) => this.onChange(event, 'notes')} />
                 </div>
+                <br/>
                 <div>
-                    <button onClick={this.addCustomer}>Add Customer</button>
-                    <button onClick={this.cancelButton}>Cancel</button>
+                    <Button variant="contained" color="primary" onClick={this.addCustomer}>Add Customer</Button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <Button variant="contained" color="primary" onClick={this.cancelButton}>Cancel</Button>
                 </div>
             </div>
         );
