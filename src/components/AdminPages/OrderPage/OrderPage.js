@@ -23,7 +23,6 @@ class OrderPage extends Component {
             id: this.props.store.setOrder.id,
             [infoKey]: event.target.value
         });
-        console.log(this.state);
     }
 
     editOrder = () => {
@@ -59,7 +58,7 @@ class OrderPage extends Component {
                         <span>{this.props.store.selected.city}</span><span> </span>
                         <span>{this.props.store.selected.zipcode}</span>
                     </div>
-
+                    <br />
                     <div>
 
                         <InputLabel>Select Service</InputLabel>

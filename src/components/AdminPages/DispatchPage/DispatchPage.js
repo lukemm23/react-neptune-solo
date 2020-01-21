@@ -46,11 +46,9 @@ class Dispatch extends Component {
             if (this.props.store.setDate.date === item.date && item.status === 'not dispatched') {
                 return (
                     <Typography key={index} className="style">
-                        <Typography>{item.id}</Typography>
-                        <Typography>{item.service} {item.customer_id} {item.notes}</Typography>
-                        <Typography>{item.date}</Typography>
-                        <Typography>{item.order_id}</Typography>
-                        <Typography>{item.status} {item.total_due}</Typography>
+                        <Typography>Order Id: {item.order_id}</Typography>
+                        <Typography>Service Selected:{item.service}</Typography>
+                        <Typography>Date Selected: {item.date} Order Status: {item.status}</Typography>
                         <Button variant="contained" color="primary" onClick={(event) => this.setState({ id: item.order_id })}>Dispatch</Button>
                     </Typography>
                 )
@@ -64,10 +62,9 @@ class Dispatch extends Component {
         const orderByTechArr = this.props.store.setOrderTech.map((item, index) => {
             return (
                 <Typography key={index} className="style">
-                    <Typography>{item.id}</Typography>
-                    <Typography>{item.service} {item.customer_id} {item.notes}</Typography>
-                    <Typography>{item.date}</Typography>
-                    <Typography>{item.status} {item.total_due}</Typography>
+                    <Typography>Order Id: {item.order_id}</Typography>
+                    <Typography>Service Selected: {item.service}</Typography>
+                    <Typography>Date Selected:{item.date} Order Status:{item.status}</Typography>
                     {/* <Button variant="contained" color="primary" onClick={(event) => {
                         this.setState({
                             employee_id:"none",
@@ -96,7 +93,7 @@ class Dispatch extends Component {
                     <Button variant="contained" color="primary" onClick={this.changeTech}>Choose Tech</Button>
                     <br/>
                     <br/>
-                    <Card>
+                    <Card style={{ height: '40vh', width: '60%' }}>
                         <CardContent>
 
                             <Typography>Order available for dispatch:</Typography>
@@ -106,9 +103,8 @@ class Dispatch extends Component {
                         </CardContent>
                     </Card>
                     <br />
-                    <br />
-                    <br />
-                    <Card>
+                    
+                    <Card style={{ height: '40vh', width: '60%' }}>
                         <CardContent>
                             <Typography>Technician assigned orders: </Typography>
                             {orderByTechArr}

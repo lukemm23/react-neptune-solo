@@ -50,34 +50,34 @@ class Customer extends Component {
                 <SideNav history={this.props.history} />
                 <h2>Customer Page</h2>
                 <div>
-                    <TextField className="input" size="small" label="First Name" variant="outlined" placeholder="First Name" onChange={(event) => this.onChange(event, 'firstname')} />
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <TextField style={{ marginLeft: '33vh' }}  className="input" size="small" label="First Name" variant="outlined" placeholder="First Name" onChange={(event) => this.onChange(event, 'firstname')} />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <TextField size="small" label="Email" variant="outlined" placeholder="Email" onChange={(event) => this.onChange(event, 'email')} />
                 </div>
                 <br/>
                 <div>
-                    <TextField size="small" label="Last Name" variant="outlined" placeholder="Last Name" onChange={(event) => this.onChange(event, 'lastname')} />
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <TextField style={{ marginLeft: '33vh' }}  size="small" label="Last Name" variant="outlined" placeholder="Last Name" onChange={(event) => this.onChange(event, 'lastname')} />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <TextField size="small" label="Phone" variant="outlined" placeholder="Phone" onChange={(event) => this.onChange(event, 'phone')} />
                 </div>
                 <br/>
                 <div>
-                    <TextField size="small" fullWidth label="Street Address" variant="outlined" placeholder="Street Address" onChange={(event) => this.onChange(event, 'address')} />
+                    <TextField size="small" style={{ marginLeft: '33vh', height: '4vh', width: '39%' }} label="Street Address" variant="outlined" placeholder="Street Address" onChange={(event) => this.onChange(event, 'address')} />
                 </div>
                 <br/>
                 <div>
-                    <TextField size="small" label="City" variant="outlined" placeholder="City" onChange={(event) => this.onChange(event, 'city')} />
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <TextField style={{ marginLeft: '33vh' }}  size="small" label="City" variant="outlined" placeholder="City" onChange={(event) => this.onChange(event, 'city')} />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <TextField size="small" label="Zipcode" variant="outlined" placeholder="Zipcode" onChange={(event) => this.onChange(event, 'zipcode')} />
                 </div>
                 <br/>
                 <div>
-                    <TextField size="small" fullWidth label="Notes" variant="outlined" placeholder="Notes" onChange={(event) => this.onChange(event, 'notes')} />
+                    <TextField size="small" style={{ marginLeft: '33vh', height: '4vh', width: '39%' }} label="Notes" variant="outlined" placeholder="Notes" onChange={(event) => this.onChange(event, 'notes')} />
                 </div>
                 <br/>
                 <div>
-                    <Button variant="contained" color="primary" onClick={this.addCustomer}>Add Customer</Button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <Button style={{ marginLeft: '39vh' }} variant="contained" color="primary" onClick={this.addCustomer}>Add Customer</Button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <Button variant="contained" color="primary" onClick={this.cancelButton}>Cancel</Button>
                 </div>
             </div>

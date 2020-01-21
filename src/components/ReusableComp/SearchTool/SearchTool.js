@@ -102,12 +102,12 @@ class SearchTool extends Component {
 
         return (
             <div>
-                <TextField className="input" size="small" label="Enter Name" variant="outlined" placeholder="Enter Customer Name" onChange={(event) => this.onChange(event, 'name')} />
+                <TextField style={{ marginLeft: '33vh' }} className="input" size="small" label="Enter Name" variant="outlined" placeholder="Enter Customer Name" onChange={(event) => this.onChange(event, 'name')} />
                 <span>   OR   </span>
                 <TextField className="input" size="small" label="Enter Phone" variant="outlined" placeholder="Enter Customer Phone" onChange={(event) => this.onChange(event, 'phone')} />
                 <br/>
                 <br/>
-                <Card>
+                <Card style={{ marginLeft:'21vh', height: '27vh', width: '60%' }}>
                     <CardContent>
                         <Typography>
                             <h3>Search Results:</h3>
@@ -117,7 +117,7 @@ class SearchTool extends Component {
                 </Card>
                 <br/>
                 <br/>
-                <Button variant="contained" color="primary" onClick={this.addService(indexArray)}>Add Service for Customer</Button>
+                <Button style={{ marginLeft: '37vh' }} variant="contained" color="primary" onClick={this.addService(indexArray)}>Add Service for Customer</Button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <Button variant="contained" color="primary" onClick={this.cancelButton}>Cancel</Button>
             </div>
