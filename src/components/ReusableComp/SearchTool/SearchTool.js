@@ -15,24 +15,7 @@ class SearchTool extends Component {
         phone: '',
         estimate_time: '',
     }
-    //card styling
-    // const useStyles = makeStyles({
-    //     card: {
-    //         minWidth: 275,
-    //     },
-    //     bullet: {
-    //         display: 'inline-block',
-    //         margin: '0 2px',
-    //         transform: 'scale(0.8)',
-    //     },
-    //     title: {
-    //         fontSize: 14,
-    //     },
-    //     pos: {
-    //         marginBottom: 12,
-    //     },
-    // });
-    //card styling ends
+    
 
     componentDidMount() { // react Component method
         this.props.dispatch({

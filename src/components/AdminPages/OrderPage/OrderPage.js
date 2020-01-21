@@ -5,6 +5,8 @@ import SideNav from '../../ReusableComp/SideNav/SideNav';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 
 class OrderPage extends Component {
     state = {
@@ -23,6 +25,7 @@ class OrderPage extends Component {
             id: this.props.store.setOrder.id,
             [infoKey]: event.target.value
         });
+        console.log(this.state);
     }
 
     editOrder = () => {
@@ -46,14 +49,14 @@ class OrderPage extends Component {
             <div>
                 <SideNav />
                 <h2>Order Page</h2>
-                <h4>order number: {this.props.store.setOrder.id}</h4>
+                <h4  style={{ marginLeft: '35vh' }}>order number: {this.props.store.setOrder.id}</h4>
                 <div>
-                    <div>
+                    <div style={{ marginLeft: '33vh' }}>
                         <span>Name: {this.props.store.selected.firstname}</span><span> </span>
                         <span>{this.props.store.selected.lastname}</span><span> </span>
                         <span>Phone: {this.props.store.selected.phone}</span>
                     </div>
-                    <div>
+                    <div style={{ marginLeft: '33vh' }}>
                         <span>address: {this.props.store.selected.address}</span><span> </span>
                         <span>{this.props.store.selected.city}</span><span> </span>
                         <span>{this.props.store.selected.zipcode}</span>
@@ -62,11 +65,10 @@ class OrderPage extends Component {
                     <div>
 
                         <InputLabel>Select Service</InputLabel>
-                        <select onChange={(event) => this.setState({ service: event.target.value })}>
-                            <option value="">Select Service</option>
-                            <option value="1">premium cleaning</option>
-                            <option value="2">pump repair</option>
-                        </select>
+                        <Select style={{height: '6.6vh', width: '20%' }} variant="outlined" onChange={(event) => this.setState({ service: event.target.value })}>
+                            <MenuItem value="1">premium cleaning</MenuItem>
+                            <MenuItem value="2">pump repair</MenuItem>
+                        </Select>
 
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <TextField className="input" size="small" label="Date of Service" variant="outlined" placeholder="date of service" onChange={(event) => this.onChange(event, 'date')} />
