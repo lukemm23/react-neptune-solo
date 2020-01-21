@@ -56,6 +56,7 @@ class DatePicker extends Component {
                             <option value="30">30</option>
                             <option value="31">31</option>
                         </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <Button variant="contained" color="primary" onClick={this.changeDate}>Choose Date</Button>
             </div>
         );

@@ -38,14 +38,14 @@ class Map extends Component {
         if(this.state.clicked) {
             toast = (
                 <div className="scotts-toast">
-                    HAIL HYDRA!
+                    TYTO SPOT!
                 </div>
             )
         }
 
         return (
             // Important! Always set the container height explicitly
-            <div style={{ height: '100vh', width: '100%' }}>
+            <div style={{ height: '50vh', width: '60%' }}>
 
             {toast}
 
@@ -61,7 +61,7 @@ class Map extends Component {
                     lat={39.0983261} // Where should the marker go?
                     lng={-94.5783415}
                 >
-                    Hail Enhydra
+                    TYTO SPOT!
                 </div>
             </GoogleMapReact>
             </div>
