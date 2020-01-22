@@ -38,9 +38,9 @@ callMe(){
         {/* <Nav /> */}
         <SideNav history={this.props.history} />
         <h2>User Page</h2>
-        <div>
-        <span>
-        <Card style={{ height: '20vh', width: '42%' }}>
+        <div style={{display:"flex"}}>
+        <div style={{flex:"1", padding:"20px"}}>
+        <Card style={{ height: '20vh', width: '100%' }}>
           <CardContent>
             <Typography>
             <strong>Current Date:</strong>
@@ -49,10 +49,10 @@ callMe(){
           {this.callMe()}
           </CardContent>
         </Card>
-        </span>
+        </div>
         <br/>
-        <span>
-        <Card style={{ height: '20vh', width: '42%' }}>
+        <div style={{flex:"1", padding:"20px"}}>
+        <Card style={{ height: '20vh', width: '100%' }}>
           <CardContent>
             <Typography>
             <strong>Total Orders:</strong>
@@ -60,10 +60,10 @@ callMe(){
           {/* order total by date goes here */}
           </CardContent>
         </Card>
-        </span>
+        </div>
         <br/>
-        <span>
-        <Card style={{ height: '20vh', width: '42%' }}>
+        <div style={{flex:"1", padding:"20px"}}>
+        <Card style={{ height: '20vh', width: '100%' }}>
           <CardContent>
             <Typography>
             <strong>Total Todos:</strong>
@@ -71,7 +71,7 @@ callMe(){
           {/* order total by date goes here */}
           </CardContent>
         </Card>
-        </span>
+        </div>
         </div>
         {/* <Map /> */}
         {/* <Calendar /> */}

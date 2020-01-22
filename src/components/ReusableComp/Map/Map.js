@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
 import './Map.css';
+// import { DirectionsRenderer } from '@react-google-maps/api';
 
 // CHECK OUT https://developers.google.com/maps/documentation/javascript/tutorial
 // THERE IS GOOGLE CLOUD PLATFORM STUFF YOU ARE GOING TO NEED TO SET UP,
@@ -68,6 +69,7 @@ class Map extends Component {
         );
     }
 }
+
 
 const mapStateToProps = reduxState => ({
     reduxState
