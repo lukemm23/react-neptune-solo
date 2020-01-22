@@ -5,15 +5,19 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './DispatchPage.css';
 import Button from '@material-ui/core/Button';
-
+import Map from '../../ReusableComp/Map/Map';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 
 class Dispatch extends Component {
     state = {
         employee_id: '',
         id: '',
+        address:''
     };
     componentDidMount() { // react Component method
         this.props.dispatch({
@@ -49,7 +53,9 @@ class Dispatch extends Component {
                         <Typography>Order Id: {item.order_id}</Typography>
                         <Typography>Service Selected:{item.service}</Typography>
                         <Typography>Date Selected: {item.date} Order Status: {item.status}</Typography>
-                        <Button variant="contained" color="primary" onClick={(event) => this.setState({ id: item.order_id })}>Dispatch</Button>
+                        <Button variant="contained" color="primary" 
+                        onClick={(event) => this.setState({ id: item.order_id, address:item.address })}>
+                            Dispatch</Button>
                     </Typography>
                 )
             }
@@ -81,19 +87,29 @@ class Dispatch extends Component {
                 <h2>Dispatch Page</h2>
 
                 <div>
-                    <h3>orders:</h3>
+                    <h3 style={{ marginLeft:'40px' }}>Orders:</h3>
+                    <div style={{display:"flex"}}>
+                    <div style={{flex:"1"}}>
                     <DatePicker />
+                    </div>
                     <br />
-                    <select onChange={(event) => this.setState({ employee_id: event.target.value })}>
-                        <option value="">Choose Technician</option>
-                        <option value="1">Luke</option>
-                        <option value="3">Josh</option>
-                    </select>
+                    <div style={{flex:"1"}}>
+                    <InputLabel>Select Technician</InputLabel>
+                    <Select style={{height: '4.6vh', width: '28%' }} variant="outlined" 
+                    onChange={(event) => this.setState({ employee_id: event.target.value })}>
+                        <MenuItem value="">Choose Technician</MenuItem>
+                        <MenuItem value="1">Luke</MenuItem>
+                        <MenuItem value="3">Josh</MenuItem>
+                    </Select>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <Button variant="contained" color="primary" onClick={this.changeTech}>Choose Tech</Button>
+                    </div>
+                    </div>
                     <br/>
                     <br/>
-                    <Card style={{ height: '40vh', width: '60%' }}>
+                    <div style={{display:"flex"}}>
+                        <div style={{flex:"1"}}>
+                    <Card style={{ marginLeft:'10px',height: '40vh', width: '61%' }}>
                         <CardContent>
 
                             <Typography>Order available for dispatch:</Typography>
@@ -102,9 +118,16 @@ class Dispatch extends Component {
 
                         </CardContent>
                     </Card>
-                    <br />
+                    </div>
+                    <div style={{flex:"1"}}>
+                    <Map style={{ height: '20vh', width: '100%' }} address={this.state.address}></Map>
+                    </div>
                     
-                    <Card style={{ height: '40vh', width: '60%' }}>
+                    </div>
+                    
+                    {/* <br /> */}
+                    
+                    <Card style={{ height: '40vh', width: '29%', marginLeft:'8vh' }}>
                         <CardContent>
                             <Typography>Technician assigned orders: </Typography>
                             {orderByTechArr}
@@ -112,7 +135,8 @@ class Dispatch extends Component {
                     </Card>
                     <br/>
                     <br/>
-                    <Button variant="contained" color="primary" onClick={this.editOrder}>Confirm Changes</Button>
+                    <Button style={{ marginLeft:'8vh' }} variant="contained" color="primary" 
+                    onClick={this.editOrder}>Confirm Changes</Button>
                 </div>
             </div>
         );

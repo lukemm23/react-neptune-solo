@@ -65,7 +65,7 @@ class OrderPage extends Component {
                     <div>
 
                         <InputLabel>Select Service</InputLabel>
-                        <Select style={{height: '6.6vh', width: '20%' }} variant="outlined" onChange={(event) => this.setState({ service: event.target.value })}>
+                        <Select style={{height: '5.2vh', width: '20%' }} variant="outlined" onChange={(event) => this.setState({ service: event.target.value })}>
                             <MenuItem value="1">premium cleaning</MenuItem>
                             <MenuItem value="2">pump repair</MenuItem>
                         </Select>

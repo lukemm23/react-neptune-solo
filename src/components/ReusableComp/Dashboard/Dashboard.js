@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
-import SideNav from '../../ReusableComp/SideNav/SideNav';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import Dashboard from '../../ReusableComp/Dashboard/Dashboard';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace 
 // the component name TemplateClass with the name for the new 
 // component.
-class Chat extends Component {
-    
+class Dashboard extends Component {
+    state = {
+        heading: 'Class Component',
+    };
 
     render() {
         return (
             <div>
-                <SideNav history={this.props.history}/>
-                <h2>Chat Page</h2>
-                <Dashboard/>
+                <h2>{this.state.heading}</h2>
             </div>
         );
     }
 }
 
-
-export default connect(mapStoreToProps)(Chat);
+export default connect(mapStoreToProps)(Dashboard);

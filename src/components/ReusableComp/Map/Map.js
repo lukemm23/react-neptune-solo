@@ -1,78 +1,135 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import GoogleMapReact from 'google-map-react';
+import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './Map.css';
-// import { DirectionsRenderer } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, 
+    DirectionsService,
+    DirectionsRenderer
+} from '@react-google-maps/api';
 
 // CHECK OUT https://developers.google.com/maps/documentation/javascript/tutorial
 // THERE IS GOOGLE CLOUD PLATFORM STUFF YOU ARE GOING TO NEED TO SET UP,
 // THE CODE WILL NOT WORK WITHOUT IT!
 
 class Map extends Component {
+    constructor (props) {
+      super(props)
+  
+      this.state = {
+        response: null,
+        travelMode: 'DRIVING',
+        origin: '11230 oak street',
+        destination: '1301 oak street'
+      }
+  
+      this.directionsCallback = this.directionsCallback.bind(this)
+      // this.checkDriving = this.checkDriving.bind(this)
+      // this.checkBicycling = this.checkBicycling.bind(this)
+      // this.checkTransit = this.checkTransit.bind(this)
+      // this.checkWalking = this.checkWalking.bind(this)
+      // this.getOrigin = this.getOrigin.bind(this)
+      // this.getDestination = this.getDestination.bind(this)
+      // this.onClick = this.onClick.bind(this)
+      // this.onMapClick = this.onMapClick.bind(this)
+    }
 
-    static defaultProps = {
-        center: {
-            lat: 39.0983261, //Where are we heading when we load the map?
-            lng: -94.5804415
-        },
-        zoom: 11
-    };
+    // plotLocation = () => {
+    //     console.log(this.state);
+    //     this.setState({
+    //         address: this.props.address
+    //     })
+    //     console.log(this.state);
+    // }
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            clicked: false
+    directionsCallback = (response) => {
+        console.log(response)
+    
+        if (response !== null) {
+          if (response.status === 'OK') {
+            console.log(this.state);
+            this.setState(
+              () => ({
+                response
+              })
+            )
+          } else {
+            console.log('response: ', response)
+          }
         }
-    }
-
-    clickMarker = (message) => (event) => {
-        this.setState({
-            clicked: !this.state.clicked
-        })
-    }
+      }
 
     render() {
 
-        let toast = <div></div>;
-
-        if(this.state.clicked) {
-            toast = (
-                <div className="scotts-toast">
-                    TYTO SPOT!
-                </div>
-            )
-        }
-
         return (
-            // Important! Always set the container height explicitly
-            <div style={{ height: '50vh', width: '60%' }}>
 
-            {toast}
-
-            <GoogleMapReact
-                // Yo. This is my key. You need your own. This key will not work on your app.
-                // See above tutorial link!
-                bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
-                defaultCenter={this.props.center}
-                defaultZoom={this.props.zoom}
+            <LoadScript
+            id="script-loader"
+            googleMapsApiKey="AIzaSyB2zaDmB_nWSpzed9h9EGeAOZSX3GXSZo0"
+          >
+            <GoogleMap
+             id="circle-example"
+             mapContainerStyle={{
+               height: "300px",
+               width: "500px"
+             }}
+             zoom={7}
+             center={{
+               lat: 39.0983261,
+               lng: -94.5804415
+             }}
             >
-                <div
-                    className="test" onClick={this.clickMarker('Hail!')}
-                    lat={39.0983261} // Where should the marker go?
-                    lng={-94.5783415}
-                >
-                    TYTO SPOT!
-                </div>
-            </GoogleMapReact>
-            </div>
+                {
+              (
+                this.state.destination !== '' &&
+                this.state.origin !== ''
+              ) && (
+              <DirectionsService
+                  // required
+                  options={{
+                    destination: this.state.destination,
+                    origin: this.state.origin,
+                    travelMode: this.state.travelMode
+                  }}
+                  // required
+                  callback={this.directionsCallback}
+                //   // optional
+                  onLoad={directionsService => {
+                    console.log('DirectionsService onLoad directionsService: ', directionsService)
+                  }}
+                //   // optional
+                  onUnmount={directionsService => {
+                    console.log('DirectionsService onUnmount directionsService: ', directionsService)
+                  }}
+                />  
+                )
+            }
+            {
+              this.state.response !== null && (
+                <DirectionsRenderer
+                  // required
+                  options={{ // eslint-disable-line
+                    directions: this.state.response
+                  }}
+                  // optional
+                  onLoad={directionsRenderer => {
+                    console.log('DirectionsRenderer onLoad directionsRenderer: ', directionsRenderer)
+                  }}
+                  // optional
+                  onUnmount={directionsRenderer => {
+                    console.log('DirectionsRenderer onUnmount directionsRenderer: ', directionsRenderer)
+                  }}
+                />
+              )
+            }
+          
+            </GoogleMap>
+            <br/>
+            {/* <button onClick={(event)=>this.plotLocation(event, this.props.address)}>Plot Location</button> */}
+          </LoadScript>
+            // Important! Always set the container height explicitly
+            
         );
     }
 }
 
-
-const mapStateToProps = reduxState => ({
-    reduxState
-});
-
-export default connect(mapStateToProps)(Map);
+export default connect(mapStoreToProps)(Map);

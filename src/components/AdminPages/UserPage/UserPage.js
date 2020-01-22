@@ -62,7 +62,7 @@ callMe(){
         </Card>
         </div>
         <br/>
-        <div style={{flex:"1", padding:"20px"}}>
+        <div style={{flex:"1", padding:"20px", marginRight:"15px"}}>
         <Card style={{ height: '20vh', width: '100%' }}>
           <CardContent>
             <Typography>
