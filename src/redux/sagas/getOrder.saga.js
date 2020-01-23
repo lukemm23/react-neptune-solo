@@ -18,9 +18,11 @@ function* getOrder(action) {
     }
 }
 
+
 // ONLY FOR REGISTRATION
 function* getOrderSaga() {
     yield takeLatest('GET_ORDER', getOrder);
 }
+
 
 export default getOrderSaga;

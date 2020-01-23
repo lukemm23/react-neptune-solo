@@ -12,8 +12,8 @@ class Calendar extends Component {
 
     render() {
         return (
-            <ScheduleComponent>
-                <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
+            <ScheduleComponent style={{ padding:"10px", margin:"50px",width: '50%'}}>
+                <Inject services={[Month, Agenda,Day, Week, WorkWeek]} />
             </ScheduleComponent>
         );
     }

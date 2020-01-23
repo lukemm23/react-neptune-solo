@@ -8,12 +8,15 @@ import Typography from '@material-ui/core/Typography';
 
 // import LogOutButton from '../../ReusableComp/LogOutButton/LogOutButton';
 // import Nav from '../Nav/Nav';
-// import Calendar from '../Calendar/Calendar';
+import Calendar from '../../ReusableComp/Calendar/Calendar';
 import SideNav from '../../ReusableComp/SideNav/SideNav';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-// import Map from '../../ReusableComp/Map/Map';
-// import Map2 from '../../ReusableComp/Map/MapElement'
-// import Footer from '../Footer/Footer';
+import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -21,6 +24,16 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 class UserPage extends Component{
 state = {
   dateComp : new Date()
+}
+
+componentDidMount() { // react Component method
+  this.props.dispatch({
+      type: 'GET_ALL_ORDERS_TODAY',
+      payload: this.state.dateComp
+  });
+  this.props.dispatch({
+    type: 'GET_ALL_NEW_ORDER',
+})
 }
 
 callMe(){
@@ -31,13 +44,23 @@ callMe(){
   },1000);
 }
   
-  render(){
+  render(){const newOrderArr = this.props.store.setAllNew.map((item, index) => {  
+        return (
+            <TableRow key={index} className="style">
+                <TableCell>{item.order_id}</TableCell>
+                <TableCell>{item.service}</TableCell>
+                <TableCell>{item.date}</TableCell>
+                <TableCell>{item.status}</TableCell>
+                <TableCell><Button variant="contained" color="primary">Details</Button></TableCell>
+            </TableRow>
+        )
+})
     return (
     
       <div>
         {/* <Nav /> */}
         <SideNav history={this.props.history} />
-        <h2>User Page</h2>
+        <h2>Home Page</h2>
         <div style={{display:"flex"}}>
         <div style={{flex:"1", padding:"20px"}}>
         <Card style={{ height: '20vh', width: '100%' }}>
@@ -50,14 +73,17 @@ callMe(){
           </CardContent>
         </Card>
         </div>
-        <br/>
+        {/* <br/> */}
         <div style={{flex:"1", padding:"20px"}}>
         <Card style={{ height: '20vh', width: '100%' }}>
           <CardContent>
             <Typography>
-            <strong>Total Orders:</strong>
+            <strong>Total Orders Today:</strong>
           </Typography>
-          {/* order total by date goes here */}
+            6
+          <Typography>
+            {/* {this.props.store.setAllNew.length} */}
+          </Typography>
           </CardContent>
         </Card>
         </div>
@@ -68,14 +94,28 @@ callMe(){
             <Typography>
             <strong>Total Todos:</strong>
           </Typography>
-          {/* order total by date goes here */}
+          <Typography>
+            {this.props.store.setAllNew.length}
+          </Typography>
           </CardContent>
         </Card>
         </div>
         </div>
-        {/* <Map /> */}
-        {/* <Calendar /> */}
-        {/* <Footer /> */}
+        <Calendar style={{  margin:"15px"}} />
+        <Table style={{ padding:"10px", margin:"50px",width: '90%'}}>
+          <TableHead>
+            <TableRow>
+              <TableCell>Order ID</TableCell>
+              <TableCell>Service ID</TableCell>
+              <TableCell>Date</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Details</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {newOrderArr}
+          </TableBody>
+        </Table>
       </div>
       
     );

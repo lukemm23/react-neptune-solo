@@ -19,5 +19,4 @@ function* addOrderSaga() {
     yield takeLatest('ADD_ORDER', addOrder);
 }
 
-
 export default addOrderSaga;

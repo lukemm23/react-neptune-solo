@@ -49,7 +49,6 @@ class SearchTool extends Component {
         this.props.history.push('/order');
     }
 
-
     render() {
         // const classes = useStyles();
         // const bull = <span className={classes.bullet}>•</span>;
@@ -83,6 +82,7 @@ class SearchTool extends Component {
             }
         })
 
+
         return (
             <div>
                 <TextField style={{ marginLeft: '33vh' }} className="input" size="small" label="Enter Name" variant="outlined" placeholder="Enter Customer Name" onChange={(event) => this.onChange(event, 'name')} />
@@ -94,8 +94,8 @@ class SearchTool extends Component {
                     <CardContent>
                         <Typography>
                             <h3>Search Results:</h3>
-                    </Typography>
-                        {customersArr}
+                        </Typography>
+                            {customersArr}
                     </CardContent>
                 </Card>
                 <br/>

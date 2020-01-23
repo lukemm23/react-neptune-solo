@@ -11,6 +11,7 @@ import getAllNewSaga from './getAllNew.saga';
 import postJunctionSaga from './postJunction.saga';
 import getOrderTechSaga from './getOrderTech.saga';
 import addTechSaga from './addTech.saga';
+import getAllTodaySaga from './getAllToday.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -33,5 +34,6 @@ export default function* rootSaga() {
     postJunctionSaga(),
     getOrderTechSaga(),
     addTechSaga(),
+    getAllTodaySaga(),
   ]);
 }

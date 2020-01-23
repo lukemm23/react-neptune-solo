@@ -8,6 +8,7 @@ import setOrder from './setOrder.reducer';
 import setAllNew from './setAllNew.reducer';
 import setOrderTech from './setOrderTech.reducer';
 import setDate from './setDate.reducer';
+import setAllToday from './setAllToday.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   setAllNew,
   setOrderTech,
   setDate,
+  setAllToday,
 });
 
 export default rootReducer;

@@ -5,3 +5,8 @@ div {
 h2 {
     text-align: center;
 }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(18, 206, 196);
+}

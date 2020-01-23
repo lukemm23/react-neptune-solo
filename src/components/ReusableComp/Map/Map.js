@@ -6,6 +6,7 @@ import { GoogleMap, LoadScript,
     DirectionsService,
     DirectionsRenderer
 } from '@react-google-maps/api';
+import Button from '@material-ui/core/Button';
 
 // CHECK OUT https://developers.google.com/maps/documentation/javascript/tutorial
 // THERE IS GOOGLE CLOUD PLATFORM STUFF YOU ARE GOING TO NEED TO SET UP,
@@ -33,13 +34,15 @@ class Map extends Component {
       // this.onMapClick = this.onMapClick.bind(this)
     }
 
-    // plotLocation = () => {
-    //     console.log(this.state);
-    //     this.setState({
-    //         address: this.props.address
-    //     })
-    //     console.log(this.state);
-    // }
+    plotLocation = () => {
+        console.log(this.state);
+        this.setState({
+            address: this.props.address
+        })
+        console.log(this.state);
+    }
+
+
 
     directionsCallback = (response) => {
         console.log(response)
@@ -124,7 +127,7 @@ class Map extends Component {
           
             </GoogleMap>
             <br/>
-            {/* <button onClick={(event)=>this.plotLocation(event, this.props.address)}>Plot Location</button> */}
+            <Button variant="contained" color="primary" onClick={this.plotLocation}>Plot Location</Button>
           </LoadScript>
             // Important! Always set the container height explicitly
             

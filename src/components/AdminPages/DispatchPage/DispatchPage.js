@@ -17,7 +17,8 @@ class Dispatch extends Component {
     state = {
         employee_id: '',
         id: '',
-        address:''
+        origin:'',
+        destination:''
     };
     componentDidMount() { // react Component method
         this.props.dispatch({
@@ -30,6 +31,10 @@ class Dispatch extends Component {
             type: 'GET_ORDER_BY_TECH',
             payload: this.state.employee_id
         })
+        this.setState({
+           ...this.props.store.setOrderTech
+        })
+        console.log(this.state);
     }
 
 
@@ -125,9 +130,9 @@ class Dispatch extends Component {
                     
                     </div>
                     
-                    {/* <br /> */}
+                    <br />
                     
-                    <Card style={{ height: '40vh', width: '29%', marginLeft:'8vh' }}>
+                    <Card style={{ height: '40vh', width: '29%', marginLeft:'5vh' }}>
                         <CardContent>
                             <Typography>Technician assigned orders: </Typography>
                             {orderByTechArr}
