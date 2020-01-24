@@ -67,7 +67,7 @@ class Map extends Component {
             id="script-loader"
             googleMapsApiKey="AIzaSyB2zaDmB_nWSpzed9h9EGeAOZSX3GXSZo0"
           >
-    <div>chulai!{this.props.store.setRoute.origin}{this.props.store.setRoute.destination}</div>
+    <div>{this.props.store.setRoute.origin}to{this.props.store.setRoute.destination}</div>
             <GoogleMap
              id="circle-example"
              mapContainerStyle={{

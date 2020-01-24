@@ -62,7 +62,7 @@ class Customer extends Component {
                 </div>
                 <br/>
                 <div>
-                    <TextField size="small" style={{ marginLeft: '33vh', height: '4vh', width: '39%' }} label="Street Address" variant="outlined" placeholder="Street Address" onChange={(event) => this.onChange(event, 'address')} />
+                    <TextField size="small" style={{ marginLeft: '33vh', height: '4vh', width: '36%' }} label="Street Address" variant="outlined" placeholder="Street Address" onChange={(event) => this.onChange(event, 'address')} />
                 </div>
                 <br/>
                 <div>
@@ -72,7 +72,7 @@ class Customer extends Component {
                 </div>
                 <br/>
                 <div>
-                    <TextField size="small" style={{ marginLeft: '33vh', height: '4vh', width: '39%' }} label="Notes" variant="outlined" placeholder="Notes" onChange={(event) => this.onChange(event, 'notes')} />
+                    <TextField size="small" style={{ marginLeft: '33vh', height: '4vh', width: '36%' }} label="Notes" variant="outlined" placeholder="Notes" onChange={(event) => this.onChange(event, 'notes')} />
                 </div>
                 <br/>
                 <div>

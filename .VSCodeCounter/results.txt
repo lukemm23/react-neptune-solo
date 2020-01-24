@@ -1,0 +1,146 @@
+Date : 2020-01-24 15:46:12
+Directory : /Users/prime/Desktop/prime/solo-project/neptune-solo
+Total : 78 files,  2903 codes, 388 comments, 495 blanks, all 3786 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         66 |      2,421 |        362 |        405 |      3,188 |
+| CSS        |          7 |        191 |         14 |         38 |        243 |
+| JSON       |          2 |        135 |          0 |          1 |        136 |
+| Markdown   |          1 |         73 |          0 |         35 |        108 |
+| SQL        |          1 |         67 |         12 |         15 |         94 |
+| HTML       |          1 |         16 |          0 |          1 |         17 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                             | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                |         78 |      2,903 |        388 |        495 |      3,786 |
+| public                                                                                                           |          1 |         16 |          0 |          1 |         17 |
+| server                                                                                                           |         14 |        481 |        144 |        113 |        738 |
+| server/constants                                                                                                 |          1 |         21 |          0 |          3 |         24 |
+| server/modules                                                                                                   |          4 |         70 |         36 |         22 |        128 |
+| server/routes                                                                                                    |          7 |        326 |         84 |         68 |        478 |
+| server/strategies                                                                                                |          1 |         36 |         16 |          6 |         58 |
+| src                                                                                                              |         59 |      2,131 |        232 |        330 |      2,693 |
+| src/components                                                                                                   |         31 |      1,627 |        128 |        217 |      1,972 |
+| src/components/AdminPages                                                                                        |          9 |        513 |         32 |         67 |        612 |
+| src/components/AdminPages/ChatPage                                                                               |          1 |         17 |          4 |          5 |         26 |
+| src/components/AdminPages/CustomerPage                                                                           |          1 |         82 |          0 |          6 |         88 |
+| src/components/AdminPages/DispatchPage                                                                           |          2 |        128 |         12 |         19 |        159 |
+| src/components/AdminPages/InvoicePage                                                                            |          1 |         57 |          5 |          6 |         68 |
+| src/components/AdminPages/OrderPage                                                                              |          1 |         90 |          0 |         14 |        104 |
+| src/components/AdminPages/SearchPage                                                                             |          2 |         28 |          4 |          8 |         40 |
+| src/components/AdminPages/UserPage                                                                               |          1 |        111 |          7 |          9 |        127 |
+| src/components/App                                                                                               |          2 |         98 |          5 |         15 |        118 |
+| src/components/MainPages                                                                                         |          5 |        348 |         15 |         46 |        409 |
+| src/components/MainPages/AboutPage                                                                               |          1 |         11 |          4 |          4 |         19 |
+| src/components/MainPages/LandingPage                                                                             |          2 |        167 |         11 |         27 |        205 |
+| src/components/MainPages/LoginPage                                                                               |          1 |         85 |          0 |          7 |         92 |
+| src/components/MainPages/RegisterPage                                                                            |          1 |         85 |          0 |          8 |         93 |
+| src/components/Modules                                                                                           |          3 |         63 |         31 |         19 |        113 |
+| src/components/Modules/ProtectedRoute                                                                            |          1 |         35 |         22 |         11 |         68 |
+| src/components/Modules/TemplateClass                                                                             |          1 |         16 |          4 |          4 |         24 |
+| src/components/Modules/TemplateFunction                                                                          |          1 |         12 |          5 |          4 |         21 |
+| src/components/ReusableComp                                                                                      |         12 |        605 |         45 |         70 |        720 |
+| src/components/ReusableComp/Calendar                                                                             |          1 |         14 |          4 |          4 |         22 |
+| src/components/ReusableComp/Dashboard                                                                            |          1 |         16 |          4 |          3 |         23 |
+| src/components/ReusableComp/DatePicker                                                                           |          1 |         62 |          4 |          4 |         70 |
+| src/components/ReusableComp/Footer                                                                               |          2 |         11 |          4 |          5 |         20 |
+| src/components/ReusableComp/LogOutButton                                                                         |          1 |         11 |          0 |          3 |         14 |
+| src/components/ReusableComp/Map                                                                                  |          2 |        118 |         19 |         18 |        155 |
+| src/components/ReusableComp/Nav                                                                                  |          2 |         63 |          3 |         10 |         76 |
+| src/components/ReusableComp/SearchTool                                                                           |          1 |         96 |          3 |         12 |        111 |
+| src/components/ReusableComp/SideNav                                                                              |          1 |        214 |          4 |         11 |        229 |
+| src/redux                                                                                                        |         27 |        480 |         96 |        105 |        681 |
+| src/redux/reducers                                                                                               |         12 |        163 |         32 |         32 |        227 |
+| src/redux/sagas                                                                                                  |         14 |        308 |         60 |         71 |        439 |
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                         | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/PostmanPrimeSoloRoutes.json                                 | JSON       |         77 |          0 |          0 |         77 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/README.md                                                   | Markdown   |         73 |          0 |         35 |        108 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/database.sql                                                | SQL        |         67 |         12 |         15 |         94 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/package.json                                                | JSON       |         58 |          0 |          1 |         59 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/public/index.html                                           | HTML       |         16 |          0 |          1 |         17 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/constants/warnings.js                                | JavaScript |         21 |          0 |          3 |         24 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/modules/authentication-middleware.js                 | JavaScript |          8 |          4 |          2 |         14 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/modules/encryption.js                                | JavaScript |         13 |         10 |          6 |         29 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/modules/pool.js                                      | JavaScript |         31 |         11 |          8 |         50 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/modules/session-middleware.js                        | JavaScript |         18 |         11 |          6 |         35 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/routes/customer.router.js                            | JavaScript |         73 |         15 |         11 |         99 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/routes/dispatch.router.js                            | JavaScript |         63 |         14 |         10 |         87 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/routes/employee.router.js                            | JavaScript |         53 |         12 |          9 |         74 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/routes/order.router.js                               | JavaScript |         84 |         18 |         18 |        120 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/routes/summary.router.js                             | JavaScript |         20 |          8 |          5 |         33 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/routes/template.router.js                            | JavaScript |          8 |          6 |          5 |         19 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/routes/user.router.js                                | JavaScript |         25 |         11 |         10 |         46 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/server.js                                            | JavaScript |         28 |          8 |         14 |         50 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/server/strategies/user.strategy.js                          | JavaScript |         36 |         16 |          6 |         58 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/AdminPages/ChatPage/ChatPage.js              | JavaScript |         17 |          4 |          5 |         26 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/AdminPages/CustomerPage/CustomerPage.js      | JavaScript |         82 |          0 |          6 |         88 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/AdminPages/DispatchPage/DispatchPage.css     | CSS        |          3 |          0 |          0 |          3 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/AdminPages/DispatchPage/DispatchPage.js      | JavaScript |        125 |         12 |         19 |        156 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/AdminPages/InvoicePage/InvoicePage.js        | JavaScript |         57 |          5 |          6 |         68 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/AdminPages/OrderPage/OrderPage.js            | JavaScript |         90 |          0 |         14 |        104 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/AdminPages/SearchPage/Search.css             | CSS        |         10 |          0 |          2 |         12 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/AdminPages/SearchPage/SearchPage.js          | JavaScript |         18 |          4 |          6 |         28 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/AdminPages/UserPage/UserPage.js              | JavaScript |        111 |          7 |          9 |        127 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/App/App.css                                  | CSS        |         45 |          1 |          7 |         53 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/App/App.js                                   | JavaScript |         53 |          4 |          8 |         65 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/MainPages/AboutPage/AboutPage.js             | JavaScript |         11 |          4 |          4 |         19 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/MainPages/LandingPage/LandingPage.css        | CSS        |         86 |         11 |         21 |        118 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/MainPages/LandingPage/LandingPage.js         | JavaScript |         81 |          0 |          6 |         87 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/MainPages/LoginPage/LoginPage.js             | JavaScript |         85 |          0 |          7 |         92 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/MainPages/RegisterPage/RegisterPage.js       | JavaScript |         85 |          0 |          8 |         93 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/Modules/ProtectedRoute/ProtectedRoute.js     | JavaScript |         35 |         22 |         11 |         68 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/Modules/TemplateClass/TemplateClass.js       | JavaScript |         16 |          4 |          4 |         24 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/Modules/TemplateFunction/TemplateFunction.js | JavaScript |         12 |          5 |          4 |         21 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/Calendar/Calendar.js            | JavaScript |         14 |          4 |          4 |         22 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/Dashboard/Dashboard.js          | JavaScript |         16 |          4 |          3 |         23 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/DatePicker/DatePicker.js        | JavaScript |         62 |          4 |          4 |         70 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/Footer/Footer.css               | CSS        |          3 |          0 |          1 |          4 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/Footer/Footer.js                | JavaScript |          8 |          4 |          4 |         16 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/LogOutButton/LogOutButton.js    | JavaScript |         11 |          0 |          3 |         14 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/Map/Map.css                     | CSS        |         15 |          0 |          2 |         17 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/Map/Map.js                      | JavaScript |        103 |         19 |         16 |        138 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/Nav/Nav.css                     | CSS        |         29 |          2 |          5 |         36 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/Nav/Nav.js                      | JavaScript |         34 |          1 |          5 |         40 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/SearchTool/SearchTool.js        | JavaScript |         96 |          3 |         12 |        111 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/components/ReusableComp/SideNav/SideNav.js              | JavaScript |        214 |          4 |         11 |        229 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/index.js                                                | JavaScript |         24 |          8 |          8 |         40 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/mapStoreToProps.js                                | JavaScript |          9 |          4 |          2 |         15 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/_root.reducer.js                         | JavaScript |         26 |          5 |          4 |         35 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/customers.reducer.js                     | JavaScript |          9 |          2 |          3 |         14 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/errors.reducer.js                        | JavaScript |         31 |          7 |          4 |         42 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/loginMode.reducer.js                     | JavaScript |         11 |          2 |          2 |         15 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/selCustomer.reducer.js                   | JavaScript |          9 |          2 |          2 |         13 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/setAllNew.reducer.js                     | JavaScript |         11 |          2 |          2 |         15 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/setAllToday.reducer.js                   | JavaScript |         11 |          2 |          2 |         15 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/setDate.reducer.js                       | JavaScript |         11 |          2 |          3 |         16 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/setOrder.reducer.js                      | JavaScript |         11 |          2 |          3 |         16 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/setOrderTech.reducer.js                  | JavaScript |         11 |          2 |          3 |         16 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/setRoute.reducer.js                      | JavaScript |         11 |          2 |          2 |         15 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/reducers/user.reducer.js                          | JavaScript |         11 |          2 |          2 |         15 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/_root.saga.js                               | JavaScript |         31 |          6 |          3 |         40 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/addCustomer.saga.js                         | JavaScript |         17 |          2 |          4 |         23 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/addOrder.saga.js                            | JavaScript |         17 |          2 |          3 |         22 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/addTech.saga.js                             | JavaScript |         22 |          2 |          6 |         30 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/customers.saga.js                           | JavaScript |         20 |          2 |          4 |         26 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/editOrder.saga.js                           | JavaScript |         21 |          2 |          6 |         29 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/getAllNew.saga.js                           | JavaScript |         20 |          2 |          4 |         26 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/getAllToday.saga.js                         | JavaScript |         21 |          2 |          4 |         27 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/getOrder.saga.js                            | JavaScript |         21 |          2 |          5 |         28 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/getOrderTech.saga.js                        | JavaScript |         29 |          2 |          4 |         35 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/login.saga.js                               | JavaScript |         37 |         20 |         11 |         68 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/postJunction.saga.js                        | JavaScript |         17 |          2 |          4 |         23 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/registration.saga.js                        | JavaScript |         17 |          6 |          7 |         30 |
+| /Users/prime/Desktop/prime/solo-project/neptune-solo/src/redux/sagas/user.saga.js                                | JavaScript |         18 |          8 |          6 |         32 |
+| Total                                                                                                            |            |      2,903 |        388 |        495 |      3,786 |
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
