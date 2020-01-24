@@ -13,6 +13,14 @@ function* getOrderTech(action) {
             type: 'SET_ORDER_BY_TECH',
             payload: response.data
         });
+        console.log('response data',response.data);
+        yield put({
+            type: 'SET_ROUTE',
+            payload: {
+                origin: response.data[0].address,
+                destination: response.data[1].address
+            }
+        });
     } catch (err) {
         console.log('error fetching order by tech: ', err);
     }

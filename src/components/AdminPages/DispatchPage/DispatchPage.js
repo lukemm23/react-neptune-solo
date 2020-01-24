@@ -16,9 +16,7 @@ import Select from '@material-ui/core/Select';
 class Dispatch extends Component {
     state = {
         employee_id: '',
-        id: '',
-        origin:'',
-        destination:''
+        id: ''
     };
     componentDidMount() { // react Component method
         this.props.dispatch({
@@ -27,14 +25,18 @@ class Dispatch extends Component {
     }
 
     changeTech = (event) => {
-        this.props.dispatch({
+         this.props.dispatch({
             type: 'GET_ORDER_BY_TECH',
             payload: this.state.employee_id
-        })
-        this.setState({
-           ...this.props.store.setOrderTech
-        })
-        console.log(this.state);
+        });
+        console.log('setordertech', this.props.store.setOrderTech)
+        // this.props.dispatch({
+        //     type: 'SET_ROUTE',
+        //     payload: {
+        //         origin: this.props.store.setOrderTech[0].address,
+        //         destination: this.props.store.setOrderTech[1].address
+        //     }
+        // })  
     }
 
 

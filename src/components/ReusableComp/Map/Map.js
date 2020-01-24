@@ -18,9 +18,7 @@ class Map extends Component {
   
       this.state = {
         response: null,
-        travelMode: 'DRIVING',
-        origin: '11230 oak street',
-        destination: '1301 oak street'
+        travelMode: 'DRIVING'
       }
   
       this.directionsCallback = this.directionsCallback.bind(this)
@@ -69,6 +67,7 @@ class Map extends Component {
             id="script-loader"
             googleMapsApiKey="AIzaSyB2zaDmB_nWSpzed9h9EGeAOZSX3GXSZo0"
           >
+    <div>chulai!{this.props.store.setRoute.origin}{this.props.store.setRoute.destination}</div>
             <GoogleMap
              id="circle-example"
              mapContainerStyle={{
@@ -87,10 +86,11 @@ class Map extends Component {
                 this.state.origin !== ''
               ) && (
               <DirectionsService
+          
                   // required
                   options={{
-                    destination: this.state.destination,
-                    origin: this.state.origin,
+                    destination: this.props.store.setRoute.origin,
+                    origin: this.props.store.setRoute.destination,
                     travelMode: this.state.travelMode
                   }}
                   // required
